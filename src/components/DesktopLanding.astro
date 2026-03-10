@@ -10,11 +10,27 @@ import sign from "../assets1/sign.svg";
 import envelopeBase from "../assets1/envelope-base.png";
 import designSkills from "../assets1/Frame 6.png";
 import devSkills from "../assets1/Frame 7.png";
+import festImage from "../assets1/fest.png";
+import ladaImage from "../assets1/lada.png";
+import bethanyImage from "../assets1/bethany.png";
+import bethanySticker from "../assets1/bethany2.png";
+import postcardsImage from "../assets1/postcards.png";
+import postLetterImage from "../assets1/post-letter.png";
+import loveInLetters1 from "../assets1/loveinletters1.png";
+import loveInLetters2 from "../assets1/loveinletters2.png";
+import loveInLetters3 from "../assets1/loveinletters3.png";
 
 const identityRows = [
   ["Брендинг ПрибойФест", "2025", "Айдентика события"],
   ["Каталог АвтоВаз", "2025", "Айдентика"],
   ["Брендинг BethanyBase", "2025", "Айдентика бренда"],
+];
+
+const identityImages = [festImage, ladaImage, bethanyImage];
+const identityDescriptions = [
+  "Визуальный стиль ПрибойФеста строиться на природных цветах прибрежья. Синий - море, желтый - небо во время заката, песочный - пляж. Весь визуал работает на то, чтобы посетители почувствовали себя в среде \"как рыбка в воде\", поэтому в продукт включены изображения самих морских обитателей. На браслетах изображен маленький парусник, мирно плывущий по волнам.",
+  "Интерактивный каталог моделей АвтоВаз в стиле классической советской верстки. Элементы и цветовая гамма были подобраны на основе раритетных каталогов авто 1960 - 1970 годов выпуска.",
+  "Полная разработка бренда. Начиная от позиции, заканчивая печатной продукцией и упаковкой. Конечным результатом был брендбук.",
 ];
 
 const graphicRows = [
@@ -26,13 +42,18 @@ const graphicRows = [
   ["Меланхолия", "2026", "Плакат"],
 ];
 
+const springDescription =
+  "Милые открытки с векторными рисунками весенних растений, объединенные общей цветовой палитрой и стилем.";
+const loveLettersDescription =
+  "Идея создать серию плакатов возникла сразу когда наткнулась на подборку архивных фото. Хотелось соединить теплые запечатленные на пленку моменты с чувственными словами. И это сработало. Стихи русских писателей идеально дополняют фотографии советских пар.\n\nСерия плакатов заняла 1 место в конкурсе “Плакат молодых художников” в Мурманском областном художественном музее.";
+
 const devRows = [
   ["Кошелечек", "2026", "Разработка B2C"],
   ["Storage", "2026", "Разработка B2B"],
 ];
 ---
 
-<main class="min-w-[1440px] bg-[#ececec] pb-16 text-[#272727]">
+<main class="min-w-[1440px] bg-white pb-16 text-[#272727]">
   <div class="relative mx-auto h-[5274px] w-[1440px]">
     <div class="absolute left-[152px] top-[84px] z-30 flex h-[41px] w-[305px] items-end">
       <button
@@ -170,72 +191,168 @@ const devRows = [
         <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Айдентика</p>
         <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">Проекты связанные с разработкой фирменного стиля и всего что связано с брендингом</p>
       </div>
-      <div class="absolute left-[396px] top-[326px] w-[784px]">
+      <div
+        class="absolute left-[396px] top-[326px] w-[784px] border-y border-[#6c6c6a]"
+        data-accordion-group="identity"
+      >
         {
-          identityRows.map(([name, year, type]) => (
-            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
-              <p>{name}</p>
-              <p>{year}</p>
-              <p>{type}</p>
+          identityRows.map(([name, year, type], index) => (
+            <div
+              class={`accordion-item ${index < identityRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}
+              data-accordion-item
+            >
+              <button
+                type="button"
+                class="accordion-trigger grid h-[66px] w-full grid-cols-[1fr_120px_1fr] items-center px-[27px] text-left text-[12px] text-[#272727] transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-white"
+                aria-expanded="false"
+                data-accordion-trigger
+              >
+                <span>{name}</span>
+                <span>{year}</span>
+                <span>{type}</span>
+              </button>
+              <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
+                <div class="pt-[10px] px-5 pb-5">
+                  <div class="relative overflow-visible rounded-[10px]">
+                    <img src={identityImages[index].src} alt={name} class="h-auto w-full rounded-[8px] object-contain" />
+                    {
+                      index === 2 && (
+                        <img
+                          src={bethanySticker.src}
+                          alt="Bethany sticker"
+                          class="absolute bottom-[-36px] right-[-26px] h-[241px] w-[241px] rotate-[-14.31deg] object-contain opacity-100"
+                        />
+                      )
+                    }
+                  </div>
+                  <p class="mt-4 text-[12px] leading-normal text-[#6c6c6a]">{identityDescriptions[index]}</p>
+                </div>
+              </div>
             </div>
           ))
         }
       </div>
     </section>
 
-    <section id="graphics" class="absolute left-[112px] top-[2676px] w-[1178px]" data-fade>
+    <section id="graphics" class="shiftable absolute left-[112px] top-[2676px] w-[1178px]" data-fade>
       <img src={imgPattern.src} alt="" class="absolute left-[399px] top-0 h-[293px] w-[775px] object-cover" />
       <div class="absolute left-0 top-[108px] w-[319px] text-right">
         <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Графика</p>
         <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">Плакаты, печатная продукция и личные проекты</p>
       </div>
-      <div class="absolute left-[396px] top-[326px] w-[784px]">
+      <div
+        class="absolute left-[396px] top-[326px] w-[784px] border-y border-[#6c6c6a]"
+        data-accordion-group="graphics"
+      >
         {
-          graphicRows.map(([name, year, type]) => (
-            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
-              <p>{name}</p>
-              <p>{year}</p>
-              <p>{type}</p>
+          graphicRows.map(([name, year, type], index) => (
+            <div
+              class={`accordion-item ${index < graphicRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}
+              data-accordion-item
+            >
+              <button
+                type="button"
+                class="accordion-trigger grid h-[66px] w-full grid-cols-[1fr_120px_1fr] items-center px-[27px] text-left text-[12px] text-[#272727] transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-white"
+                aria-expanded="false"
+                data-accordion-trigger
+              >
+                <span>{name}</span>
+                <span>{year}</span>
+                <span>{type}</span>
+              </button>
+              <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
+                {index === 0 ? (
+                  <div class="pt-[10px] pb-5 pl-[20px] pr-[20px]">
+                    <div class="flex items-start">
+                      <img src={postcardsImage.src} alt="Открытки весна" class="w-[240px] rounded-[8px] object-contain" />
+                      <div class="ml-[36px] flex flex-col">
+                        <img src={postLetterImage.src} alt="Шаблон письма" class="w-[300px] rounded-[8px] object-contain" />
+                        <p class="mt-4 max-w-[300px] text-[12px] leading-normal text-[#6c6c6a]">
+                          {springDescription}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : index === 1 ? (
+                  <div class="pt-[10px] pb-5 pl-[20px] pr-[20px]">
+                    <div class="grid h-[334px] w-[728px] grid-cols-3 gap-[10px]">
+                      <img src={loveInLetters1.src} alt="Плакат 1" class="h-full w-full rounded-[8px] object-contain" />
+                      <img src={loveInLetters2.src} alt="Плакат 2" class="h-full w-full rounded-[8px] object-contain" />
+                      <img src={loveInLetters3.src} alt="Плакат 3" class="h-full w-full rounded-[8px] object-contain" />
+                    </div>
+                    <p class="mt-4 whitespace-pre-line text-[12px] leading-normal text-[#6c6c6a]">
+                      {loveLettersDescription}
+                    </p>
+                  </div>
+                ) : (
+                  <div class="px-[27px] py-4 text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</div>
+                )}
+              </div>
             </div>
           ))
         }
       </div>
-      <img src={devImage.src} alt="" class="absolute left-[396px] top-[879px] h-[334px] w-[784px] object-cover" />
+      <img
+        src={devImage.src}
+        alt=""
+        class="shiftable absolute left-[396px] top-[879px] h-[334px] w-[784px] object-cover"
+        data-graphics-after-accordion
+      />
     </section>
 
-    <section id="dev" class="absolute left-[112px] top-[3718px] w-[1178px]" data-fade>
+    <section id="dev" class="shiftable absolute left-[112px] top-[3718px] w-[1178px]" data-fade>
       <div class="absolute left-0 top-0 w-[319px] text-right">
         <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Разработка</p>
         <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">UX/UI дизайн, разработка интерфейсов, веб дизайн</p>
       </div>
-      <div class="absolute left-[385px] top-[206px] w-[784px]">
+      <div
+        class="absolute left-[385px] top-[206px] w-[784px] border-y border-[#6c6c6a]"
+        data-accordion-group="dev"
+      >
         {
-          devRows.map(([name, year, type]) => (
-            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
-              <p>{name}</p>
-              <p>{year}</p>
-              <p>{type}</p>
+          devRows.map(([name, year, type], index) => (
+            <div
+              class={`accordion-item ${index < devRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}
+              data-accordion-item
+            >
+              <button
+                type="button"
+                class="accordion-trigger grid h-[66px] w-full grid-cols-[1fr_120px_1fr] items-center px-[27px] text-left text-[12px] text-[#272727] transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-white"
+                aria-expanded="false"
+                data-accordion-trigger
+              >
+                <span>{name}</span>
+                <span>{year}</span>
+                <span>{type}</span>
+              </button>
+              <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
+                <div class="px-[27px] py-4 text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</div>
+              </div>
             </div>
           ))
         }
       </div>
     </section>
 
-    <section class="absolute left-[166px] top-[4456px] h-[667px] w-[906px]" data-fade>
-      <div class="relative h-full w-full bg-white shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
-        <img src={envelopeBase.src} alt="" class="absolute bottom-0 left-0 h-[667px] w-[906px] object-cover" />
+    <section class="shiftable absolute left-[227px] top-[4456px] h-[448px] w-[784px]" data-fade data-envelope-block>
+      <div class="relative h-full w-full bg-[#bfc0c3] shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
+        <img src={envelopeBase.src} alt="" class="absolute bottom-0 left-0 h-[448px] w-[784px] object-cover" />
         <div
-          class="absolute left-1/2 top-0 h-[176px] w-[160px] -translate-x-1/2 bg-[#d9d9d9]"
-          style="clip-path: polygon(50% 0, 100% 82%, 84% 98%, 50% 100%, 16% 98%, 0 82%);"
+          class="absolute left-1/2 top-[2px] z-20 h-[176px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100"
+          style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
           data-envelope-corner
         ></div>
-        <p class="display-font absolute left-[247px] top-[586px] -translate-x-1/2 text-center text-[96px] leading-none text-black">
+        <div
+          class="absolute left-1/2 top-[0px] z-30 h-[172px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100 shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
+          style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
+        ></div>
+        <p class="display-font absolute bottom-[51px] left-[25px] text-[96px] leading-none text-black">
           Дл<span class="text-[48px]">я</span> теб<span class="text-[48px]">я</span>
         </p>
       </div>
     </section>
 
-    <p class="absolute left-[1140px] top-[5123px] text-[24px]">Skygge 2026</p>
+    <p class="shiftable absolute left-[1140px] top-[5123px] text-[24px]" data-footer-sign>Skygge 2026</p>
   </div>
 </main>
 
@@ -254,4 +371,91 @@ const devRows = [
       nameToggle.style.fontWeight = nextState ? "600" : "400";
     });
   }
+
+  const accordionItems = Array.from(document.querySelectorAll("[data-accordion-item]"));
+  const graphicsSection = document.getElementById("graphics");
+  const devSection = document.getElementById("dev");
+  const envelopeBlock = document.querySelector("[data-envelope-block]");
+  const footerSign = document.querySelector("[data-footer-sign]");
+  const graphicsAfterAccordion = document.querySelector("[data-graphics-after-accordion]");
+  let activeItem = null;
+
+  const getOpenPanelHeightByGroup = (groupName) => {
+    const group = document.querySelector(`[data-accordion-group="${groupName}"]`);
+    if (!group) return 0;
+    const openItem = group.querySelector(".accordion-item.is-open");
+    if (!openItem) return 0;
+    const panel = openItem.querySelector("[data-accordion-panel]");
+    return panel ? panel.scrollHeight : 0;
+  };
+
+  const setTranslateY = (element, y) => {
+    if (!element) return;
+    element.style.transform = `translateY(${y}px)`;
+  };
+
+  const updateAccordionLayout = () => {
+    const identityOffset = getOpenPanelHeightByGroup("identity");
+    const graphicsOffset = getOpenPanelHeightByGroup("graphics");
+    const devOffset = getOpenPanelHeightByGroup("dev");
+
+    setTranslateY(graphicsSection, identityOffset);
+    setTranslateY(graphicsAfterAccordion, graphicsOffset);
+    setTranslateY(devSection, identityOffset + graphicsOffset);
+    setTranslateY(envelopeBlock, identityOffset + graphicsOffset + devOffset);
+    setTranslateY(footerSign, identityOffset + graphicsOffset + devOffset);
+  };
+
+  const closeAccordionItem = (item) => {
+    const trigger = item.querySelector("[data-accordion-trigger]");
+    const panel = item.querySelector("[data-accordion-panel]");
+    if (!trigger || !panel) return;
+    trigger.setAttribute("aria-expanded", "false");
+    item.classList.remove("is-open");
+    panel.style.maxHeight = "0px";
+    updateAccordionLayout();
+  };
+
+  const openAccordionItem = (item) => {
+    const trigger = item.querySelector("[data-accordion-trigger]");
+    const panel = item.querySelector("[data-accordion-panel]");
+    if (!trigger || !panel) return;
+
+    if (activeItem && activeItem !== item) {
+      closeAccordionItem(activeItem);
+    }
+
+    trigger.setAttribute("aria-expanded", "true");
+    item.classList.add("is-open");
+    panel.style.maxHeight = `${panel.scrollHeight}px`;
+    activeItem = item;
+    updateAccordionLayout();
+    item.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
+
+  accordionItems.forEach((item) => {
+    const trigger = item.querySelector("[data-accordion-trigger]");
+    if (!trigger) return;
+    trigger.addEventListener("click", () => {
+      const isOpen = item.classList.contains("is-open");
+      if (isOpen) {
+        closeAccordionItem(item);
+        activeItem = null;
+      } else {
+        openAccordionItem(item);
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => {
+    if (activeItem) {
+      const panel = activeItem.querySelector("[data-accordion-panel]");
+      if (panel) {
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
+      }
+    }
+    updateAccordionLayout();
+  });
+
+  updateAccordionLayout();
 </script>

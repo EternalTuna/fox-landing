@@ -9,7 +9,7 @@
 }
 
 :root {
-  --bg: #ececec;
+  --bg: #ffffff;
   --text: #272727;
   --muted: #6c6c6a;
   --accent: #e8ccd8;
@@ -39,6 +39,16 @@ a {
   font-family: "Skyggefont", "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
+}
+
+.accordion-item.is-open .accordion-trigger {
+  background: #e8ccd8;
+  color: #ffffff;
+}
+
+.shiftable {
+  transition: transform 500ms ease-in-out;
+  will-change: transform;
 }
 @font-face {
   font-family: "Skygge";
