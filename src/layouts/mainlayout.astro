@@ -1,0 +1,58 @@
+---
+import "../styles/site.css";
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Montserrat:wght@400;500;600&display=swap"
+    />
+    <title>Fox Landing</title>
+  </head>
+  <body>
+    <slot />
+    <script type="module">
+      import Lenis from "lenis";
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const lenis = new Lenis({
+        duration: 1.1,
+        smoothWheel: true,
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      gsap.utils.toArray("[data-fade]").forEach((el, idx) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 32 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: idx * 0.04,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+            },
+          },
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+---
+import identica1 from "../assets1/identica1.png";
+import img1 from "../assets1/img1.png";
+import img2 from "../assets1/img2.png";
+import graphics1 from "../assets1/graphics1.png";
+import graphics2 from "../assets1/graphics2.png";
+import devHero from "../assets1/devHero.png";
+
+const identityRows = [
+  ["Summer CardHoliday", "2022", "Минималистичный дизайн"],
+  ["SMART card", "2023", "App design"],
+  ["Wolf card", "2024", "Art direction"],
+];
+
+const printRows = [
+  ["Открытки весна", "2023", "Печатная продукция"],
+  ["Любовь в мелочах и стихах", "2024", "Плакат"],
+  ["Буклет Пятигорск", "2024", "Печатная продукция"],
+  ["Дизайн тетради", "2025", "Печатная продукция"],
+  ["Ласточка", "2025", "Иллюстрации для книги"],
+  ["Меланхолия", "2026", "Плакат"],
+];
+
+const devRows = [
+  ["Кошелечек", "2026", "Разработка B2C"],
+  ["Storage", "2026", "Разработка B2B"],
+];
+---
+
+<section id="projects" class="mx-auto mt-16 w-full max-w-[1440px] px-6 pb-24 md:mt-24 md:px-16">
+  <div class="mx-auto w-full max-w-[1110px] space-y-20">
+    <article data-fade>
+      <p class="display-font text-[56px] leading-none text-[#e8ccd8] md:text-[96px]">Айдентика</p>
+      <p class="mt-1 max-w-[220px] text-[12px]">Брендинг, логотипы и графические системы</p>
+      <img src={identica1.src} alt="Айдентика" class="mt-8 h-auto w-full rounded-sm object-cover" />
+      <div class="mt-6 border-y border-[#6c6c6a]">
+        {
+          identityRows.map(([name, year, type]) => (
+            <div class="grid grid-cols-[1fr_120px_1fr] items-center border-b border-[#6c6c6a] px-6 py-5 text-[12px] last:border-b-0">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+
+    <article data-fade>
+      <p class="display-font text-[56px] leading-none text-[#e8ccd8] md:text-[96px]">Графика</p>
+      <p class="mt-1 max-w-[220px] text-[12px]">Плакаты, иллюстрации, печатная продукция</p>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <img src={img1.src} alt="Графика 1" class="h-full min-h-[220px] w-full object-cover" />
+        <img src={img2.src} alt="Графика 2" class="h-full min-h-[220px] w-full object-cover" />
+      </div>
+      <div class="mt-6 border-y border-[#6c6c6a]">
+        {
+          printRows.map(([name, year, type]) => (
+            <div class="grid grid-cols-[1fr_120px_1fr] items-center border-b border-[#6c6c6a] px-6 py-5 text-[12px] last:border-b-0">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-2">
+        <img src={graphics1.src} alt="Графика 3" class="h-full min-h-[220px] w-full object-cover" />
+        <img src={graphics2.src} alt="Графика 4" class="h-full min-h-[220px] w-full object-cover" />
+      </div>
+    </article>
+
+    <article data-fade>
+      <p class="display-font text-right text-[56px] leading-none text-[#e8ccd8] md:text-[96px]">Разработка</p>
+      <p class="ml-auto mt-1 max-w-[218px] text-[12px] text-right">
+        UX/UI дизайн, разработка интерфейсов, веб дизайн
+      </p>
+      <img src={devHero.src} alt="Разработка" class="mt-8 h-auto w-full object-cover" />
+      <div class="mt-6 border-y border-[#6c6c6a]">
+        {
+          devRows.map(([name, year, type]) => (
+            <div class="grid grid-cols-[1fr_120px_1fr] items-center border-b border-[#6c6c6a] px-6 py-5 text-[12px] last:border-b-0">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+    </article>
+  </div>
+</section>

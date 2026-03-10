@@ -1,0 +1,48 @@
+---
+import photoCard from "../assets1/photoCard.png";
+import sign from "../assets1/sign.svg";
+---
+
+<section class="mx-auto w-full max-w-[1440px] px-6 pt-8 md:px-16 md:pt-10" data-fade>
+  <header class="mx-auto flex w-full max-w-[1110px] items-center justify-between pb-5 text-[12px] uppercase tracking-[0.18em]">
+    <a class="display-font text-2xl normal-case tracking-normal md:text-[32px]" href="#top">Алиса Калашик</a>
+    <nav class="flex gap-6 md:gap-10">
+      <a href="#about">Обо мне</a>
+      <a href="#projects">Проекты</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <div class="mx-auto h-[240px] w-full max-w-[1110px] overflow-hidden bg-[#d8d8d8] md:h-[460px]">
+    <img src={photoCard.src} alt="Портрет" class="h-full w-full object-cover grayscale" />
+  </div>
+
+  <div id="about" class="mx-auto mt-12 grid w-full max-w-[1110px] gap-8 md:mt-16 md:grid-cols-[1.06fr_1fr]" data-fade>
+    <article class="relative rounded-[20px] bg-[#272727] p-6 text-white shadow-[0_10px_10px_rgba(0,0,0,0.22)] md:p-8">
+      <p class="display-font absolute -top-7 right-2 text-3xl text-[#e8ccd8] md:right-6 md:text-[40px]">Удостоверение разработчика</p>
+      <div class="mb-6 inline-flex border border-white px-3 py-1 text-[12px]">NO. OA77ATK901499</div>
+      <p class="mb-4 text-[12px]">O.@ / Love You Partner Comp.</p>
+      <ul class="space-y-3 text-[12px] font-semibold">
+        <li>ИМЯ <span class="ml-4 font-normal">Алиса К.Р</span></li>
+        <li>ДАТА РОЖДЕНИЯ <span class="ml-4 font-normal">2005 - 06 - 28</span></li>
+        <li>СПЕЦИАЛЬНОСТЬ <span class="ml-4 font-normal">Frontend Developer</span></li>
+        <li>ДАТА ЛИЦЕНЗИИ <span class="ml-4 font-normal">2025 - 08 - 03</span></li>
+      </ul>
+      <div class="mt-7 flex items-center justify-between gap-4">
+        <div class="h-[29px] w-[210px] bg-white text-center text-[12px] leading-[29px] text-black">Подпись</div>
+        <img src={sign.src} alt="Подпись" class="h-[52px] w-auto" />
+      </div>
+    </article>
+
+    <article class="relative rounded-[20px] bg-white p-6 shadow-[0_10px_10px_rgba(0,0,0,0.12)] md:p-8">
+      <p class="display-font mb-3 text-[42px] leading-none text-[#e8ccd8] md:text-[64px]">Обо мне</p>
+      <p class="max-w-[460px] text-[12px] leading-relaxed text-[#272727]">
+        Делаю аккуратные интерфейсы и визуальные системы: от айдентики и печатной графики до веба и
+        интерактивных страниц. Люблю совмещать чистую структуру и эмоциональную подачу.
+      </p>
+      <div class="mt-6 h-[120px] rounded-xl bg-[#f2e8ee] p-4 text-[12px] text-[#6c6c6a]">
+        front-end, ui, motion, editorial design
+      </div>
+    </article>
+  </div>
+</section>

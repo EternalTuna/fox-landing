@@ -1,0 +1,257 @@
+---
+import identica1 from "../assets1/Identica.png";
+import imgPattern from "../assets1/design.png";
+import devImage from "../assets1/developing.png";
+import meStatic from "../assets1/Me-static.png";
+import meUndercover from "../assets1/Me-undercover.png";
+import designerAvatar from "../assets1/photoCard.png";
+import developerAvatar from "../assets1/devHero.png";
+import sign from "../assets1/sign.svg";
+import envelopeBase from "../assets1/envelope-base.png";
+import designSkills from "../assets1/Frame 6.png";
+import devSkills from "../assets1/Frame 7.png";
+
+const identityRows = [
+  ["Брендинг ПрибойФест", "2025", "Айдентика события"],
+  ["Каталог АвтоВаз", "2025", "Айдентика"],
+  ["Брендинг BethanyBase", "2025", "Айдентика бренда"],
+];
+
+const graphicRows = [
+  ["Открытки весна", "2023", "Печатная продукция"],
+  ["Любовь в мелочах и стихах", "2024", "Плакат"],
+  ["Буклет Пятигорск", "2024", "Печатная продукция"],
+  ["Дизайн тетради", "2025", "Печатная продукция"],
+  ["Ласточка", "2025", "Иллюстрации для книги"],
+  ["Меланхолия", "2026", "Плакат"],
+];
+
+const devRows = [
+  ["Кошелечек", "2026", "Разработка B2C"],
+  ["Storage", "2026", "Разработка B2B"],
+];
+---
+
+<main class="min-w-[1440px] bg-[#ececec] pb-16 text-[#272727]">
+  <div class="relative mx-auto h-[5274px] w-[1440px]">
+    <div class="absolute left-[152px] top-[84px] z-30 flex h-[41px] w-[305px] items-end">
+      <button
+        id="name-toggle"
+        type="button"
+        class="display-font whitespace-nowrap bg-transparent text-[64px] leading-none text-[#6c6c6a] outline-none transition-all duration-300"
+        aria-pressed="false"
+      >
+        Алиса Канапина
+      </button>
+    </div>
+    <nav class="absolute left-[720px] top-[81px] z-20 flex w-[570px] items-center gap-[64px] text-[24px] font-medium leading-normal text-[#6c6c6a]">
+      <a
+        class="whitespace-nowrap rounded-full px-3 py-1 transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-[#272727]"
+        href="#identity"
+      >
+        Айдентика
+      </a>
+      <a
+        class="whitespace-nowrap rounded-full px-3 py-1 transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-[#272727]"
+        href="#graphics"
+      >
+        Графика
+      </a>
+      <a
+        class="whitespace-nowrap rounded-full px-3 py-1 transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-[#272727]"
+        href="#dev"
+      >
+        UX/UI
+      </a>
+    </nav>
+
+    <section class="absolute left-[150px] top-[152px] h-[672px] w-[1140px] overflow-hidden bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]" data-fade>
+      <img
+        src={meUndercover.src}
+        alt=""
+        class="absolute inset-0 h-full w-full object-cover opacity-0"
+        data-me-undercover
+      />
+      <img
+        src={meStatic.src}
+        alt=""
+        class="absolute inset-0 z-10 h-full w-full object-cover opacity-95"
+        data-me-static
+      />
+      <div
+        class="pointer-events-none absolute inset-0 z-20"
+        style="background-image:linear-gradient(to right, rgba(255,255,255,0.8) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.8) 1px, transparent 1px);background-size:95px 96px;"
+      ></div>
+    </section>
+
+    <section class="group absolute left-[160px] top-[942px] h-[430px] w-[601px] overflow-visible" data-fade>
+      <div class="relative h-[372px] w-[601px] origin-top-left scale-95">
+        <div class="absolute left-[31px] top-0 z-20 h-[372px] w-[570px] rounded-[20px] bg-[#e8ccd8] shadow-[0_10px_10px_rgba(0,0,0,0.25)]"></div>
+        <div class="absolute left-0 top-[83px] z-30 h-[224px] w-[224px] rotate-[-4.66deg] overflow-hidden border-[10px] border-white shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
+          <img src={designerAvatar.src} alt="" class="h-full w-full object-cover" />
+        </div>
+        <div class="absolute left-[65px] top-[37px] z-30 text-[12px]">O.@ / Love You Partner Comp.</div>
+        <div class="absolute left-[370px] top-[30px] z-30 flex h-[30px] w-[198px] items-center justify-center border border-black text-[16px]">NO. OA22ATK301469</div>
+        <p class="display-font absolute left-[262px] top-[78px] z-30 w-[284px] text-right text-[40px] leading-none">Удостоверение дизайнера</p>
+        <div class="absolute left-[275px] top-[150px] z-30 space-y-[14px] text-[12px] font-semibold">
+          <p>ИМЯ <span class="font-normal">Алиса К.Р</span></p>
+          <p>ДАТА РОЖДЕНИЯ <span class="font-normal">2005 - 06 - 28</span></p>
+          <p>СПЕЦИАЛЬНОСТЬ <span class="font-normal">Дизайнер</span></p>
+          <p>ДАТА ЛИЦЕНЗИИ <span class="font-normal">2023 - 09 - 03</span></p>
+        </div>
+        <div class="absolute left-[271px] top-[294px] z-30 h-[29px] w-[281px] bg-white text-[12px] leading-[29px]">
+          <span class="ml-[10px]">Подпись</span>
+        </div>
+        <img src={sign.src} alt="" class="absolute left-[394px] top-[273px] z-30 h-[50px] w-[89px] -rotate-[6deg]" />
+        <img
+          src={designSkills.src}
+          alt="Навыки дизайна"
+          class="pointer-events-none absolute left-1/2 top-[248px] z-10 w-[400px] -translate-x-1/2 translate-y-0 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[80px] group-hover:opacity-100"
+        />
+      </div>
+    </section>
+
+    <section class="group absolute left-[688px] top-[1420px] h-[430px] w-[601px] overflow-visible" data-fade>
+      <div class="relative h-[372px] w-[601px] origin-top-left scale-95">
+        <div class="absolute left-[31px] top-0 z-20 h-[372px] w-[570px] rounded-[20px] bg-[#272727] shadow-[0_10px_10px_rgba(0,0,0,0.25)]"></div>
+        <div class="absolute left-[-12px] top-[76px] z-30 h-[224px] w-[224px] rotate-[8deg] overflow-hidden border-[10px] border-white shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
+          <img src={developerAvatar.src} alt="" class="h-full w-full object-cover" />
+        </div>
+        <div class="absolute left-[65px] top-[37px] z-30 text-[12px] text-white">O.@ / Love You Partner Comp.</div>
+        <div class="absolute left-[370px] top-[30px] z-30 flex h-[30px] w-[198px] items-center justify-center border border-white text-[16px] text-white">NO. OA77ATK901499</div>
+        <p class="display-font absolute left-[232px] top-[78px] z-30 w-[331px] text-right text-[40px] leading-none text-[#e8ccd8]">Удостоверение разработчика</p>
+        <div class="absolute left-[275px] top-[150px] z-30 space-y-[14px] text-[12px] font-semibold text-white">
+          <p>ИМЯ <span class="font-normal">Алиса К.Р</span></p>
+          <p>ДАТА РОЖДЕНИЯ <span class="font-normal">2005 - 06 - 28</span></p>
+          <p>СПЕЦИАЛЬНОСТЬ <span class="font-normal">Frontend Developer</span></p>
+          <p>ДАТА ЛИЦЕНЗИИ <span class="font-normal">2025 - 08 - 03</span></p>
+        </div>
+        <div class="absolute left-[271px] top-[294px] z-30 h-[29px] w-[281px] bg-white text-[12px] leading-[29px] text-black">
+          <span class="ml-[10px]">Подпись</span>
+        </div>
+        <img src={sign.src} alt="" class="absolute left-[394px] top-[273px] z-30 h-[50px] w-[89px] -rotate-[6deg]" />
+        <img
+          src={devSkills.src}
+          alt="Навыки разработки"
+          class="pointer-events-none absolute left-1/2 top-[248px] z-10 w-[400px] -translate-x-1/2 translate-y-0 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-[80px] group-hover:opacity-100"
+        />
+      </div>
+    </section>
+
+    <section class="absolute left-[836px] top-[985px] w-[345px] text-[#6c6c6a]" data-fade>
+      <p class="display-font text-[40px]">ОБО МНЕ</p>
+      <p class="mt-11 text-[12px] leading-normal">
+        Привет! Я Алиса (≧◡≦) ♡
+        <br /><br />
+        Мой творческий псевдоним — Skygge.
+        <br />
+        Я графический дизайнер и frontend-разработчик из Санкт-Петербурга. Мне интересно развиваться на стыке дизайна и разработки: изучать новые инструменты, улучшать пользовательский опыт и превращать идеи в удобные цифровые продукты. Постоянно учусь, экспериментирую и стараюсь делать вещи, которые будут полезны людям (｡•̀ᴗ-)✧
+      </p>
+    </section>
+
+    <section class="absolute left-[214px] top-[1421px] w-[347px] text-[#6c6c6a]" data-fade>
+      <p class="display-font text-[40px]">ОБРАЗОВАНИЕ</p>
+      <div class="mt-11 space-y-12">
+        <div>
+          <p class="text-[16px] font-medium">2023 - 2025</p>
+          <p class="mt-2 text-[12px]">МТКС Графический дизайн (диплом с отличием)</p>
+          <p class="text-[12px] text-[#e8ccd8]">+ призер конкурса Профмастерства</p>
+        </div>
+        <div>
+          <p class="text-[16px] font-medium">2025</p>
+          <p class="mt-2 w-[274px] text-[12px]">СПБГУТ им. Бонч-Бруевича Информационные системы и технологии</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="identity" class="absolute left-[112px] top-[2021px] w-[1178px]" data-fade>
+      <img src={identica1.src} alt="" class="absolute left-[394px] top-0 h-[293px] w-[784px] object-cover" />
+      <div class="absolute left-0 top-[108px] w-[319px] text-right">
+        <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Айдентика</p>
+        <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">Проекты связанные с разработкой фирменного стиля и всего что связано с брендингом</p>
+      </div>
+      <div class="absolute left-[396px] top-[326px] w-[784px]">
+        {
+          identityRows.map(([name, year, type]) => (
+            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="graphics" class="absolute left-[112px] top-[2676px] w-[1178px]" data-fade>
+      <img src={imgPattern.src} alt="" class="absolute left-[399px] top-0 h-[293px] w-[775px] object-cover" />
+      <div class="absolute left-0 top-[108px] w-[319px] text-right">
+        <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Графика</p>
+        <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">Плакаты, печатная продукция и личные проекты</p>
+      </div>
+      <div class="absolute left-[396px] top-[326px] w-[784px]">
+        {
+          graphicRows.map(([name, year, type]) => (
+            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+      <img src={devImage.src} alt="" class="absolute left-[396px] top-[879px] h-[334px] w-[784px] object-cover" />
+    </section>
+
+    <section id="dev" class="absolute left-[112px] top-[3718px] w-[1178px]" data-fade>
+      <div class="absolute left-0 top-0 w-[319px] text-right">
+        <p class="display-font text-[96px] leading-none text-[#e8ccd8]">Разработка</p>
+        <p class="ml-auto mt-5 w-[218px] text-[12px] leading-normal">UX/UI дизайн, разработка интерфейсов, веб дизайн</p>
+      </div>
+      <div class="absolute left-[385px] top-[206px] w-[784px]">
+        {
+          devRows.map(([name, year, type]) => (
+            <div class="grid h-[66px] grid-cols-[1fr_120px_1fr] items-center border-y border-[#6c6c6a] px-[27px] text-[12px]">
+              <p>{name}</p>
+              <p>{year}</p>
+              <p>{type}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="absolute left-[166px] top-[4456px] h-[667px] w-[906px]" data-fade>
+      <div class="relative h-full w-full bg-white shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
+        <img src={envelopeBase.src} alt="" class="absolute bottom-0 left-0 h-[667px] w-[906px] object-cover" />
+        <div
+          class="absolute left-1/2 top-0 h-[176px] w-[160px] -translate-x-1/2 bg-[#d9d9d9]"
+          style="clip-path: polygon(50% 0, 100% 82%, 84% 98%, 50% 100%, 16% 98%, 0 82%);"
+          data-envelope-corner
+        ></div>
+        <p class="display-font absolute left-[247px] top-[586px] -translate-x-1/2 text-center text-[96px] leading-none text-black">
+          Дл<span class="text-[48px]">я</span> теб<span class="text-[48px]">я</span>
+        </p>
+      </div>
+    </section>
+
+    <p class="absolute left-[1140px] top-[5123px] text-[24px]">Skygge 2026</p>
+  </div>
+</main>
+
+<script is:inline>
+  const nameToggle = document.getElementById("name-toggle");
+
+  if (nameToggle) {
+    nameToggle.addEventListener("click", () => {
+      const isActive = nameToggle.getAttribute("aria-pressed") === "true";
+      const nextState = !isActive;
+
+      nameToggle.setAttribute("aria-pressed", String(nextState));
+      nameToggle.textContent = nextState ? "Skygge" : "Алиса Канапина";
+      nameToggle.style.fontFamily = nextState ? "Montserrat, sans-serif" : "Skyggefont, Montserrat, sans-serif";
+      nameToggle.style.color = nextState ? "#E8CCD8" : "#6c6c6a";
+      nameToggle.style.fontWeight = nextState ? "600" : "400";
+    });
+  }
+</script>
