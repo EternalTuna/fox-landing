@@ -29,6 +29,7 @@ import "../styles/site.css";
         duration: 1.1,
         smoothWheel: true,
       });
+      window.__lenis = lenis;
 
       function raf(time) {
         lenis.raf(time);
@@ -36,7 +37,7 @@ import "../styles/site.css";
       }
       requestAnimationFrame(raf);
 
-      gsap.utils.toArray("[data-fade]").forEach((el, idx) => {
+      gsap.utils.toArray("[data-fade]:not(.shiftable)").forEach((el, idx) => {
         gsap.fromTo(
           el,
           { opacity: 0, y: 32 },
