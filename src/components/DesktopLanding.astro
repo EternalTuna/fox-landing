@@ -19,6 +19,13 @@ import postLetterImage from "../assets1/post-letter.png";
 import loveInLetters1 from "../assets1/loveinletters1.png";
 import loveInLetters2 from "../assets1/loveinletters2.png";
 import loveInLetters3 from "../assets1/loveinletters3.png";
+import mountainsImage from "../assets1/5mountains.png";
+import noteImage from "../assets1/note1.png";
+import lastochkaImage from "../assets1/lastochka.png";
+import lastochkaImage1 from "../assets1/lastochka1.png";
+import lastochkaImage2 from "../assets1/lastochka2.png";
+import heart1Image from "../assets1/Heart1.png";
+import heart3Image from "../assets1/Heart3.png";
 
 const identityRows = [
   ["Брендинг ПрибойФест", "2025", "Айдентика события"],
@@ -46,10 +53,34 @@ const springDescription =
   "Милые открытки с векторными рисунками весенних растений, объединенные общей цветовой палитрой и стилем.";
 const loveLettersDescription =
   "Идея создать серию плакатов возникла сразу когда наткнулась на подборку архивных фото. Хотелось соединить теплые запечатленные на пленку моменты с чувственными словами. И это сработало. Стихи русских писателей идеально дополняют фотографии советских пар.\n\nСерия плакатов заняла 1 место в конкурсе “Плакат молодых художников” в Мурманском областном художественном музее.";
+const mountainsDescription =
+  "Это фигурный буклет для туристического маршрута 6 - “Пятигорск Лермонтова”. В сложенном состоянии фигуры персонажей “Герой нашего времени” складываються в одну композицию.";
+const noteDescription =
+  "Я разработала этот дизайн тетради для своей бабушки. У нее есть привычка записывать информацию на разных листочках, а потом забывать куда записала. Поэтому я создала для нее тетрадку в клеточку, чтобы она ничего не теряла :)";
+const lastochkaDescription =
+  "Когда я прочитала “Ласточку”, то в голове сразу возникла метафора на материнство, и я решила изобразить историю именно так.";
+const melancholyEmbedUrl =
+  "https://embed.figma.com/proto/0LkhO4fS9qv5nrriaO9res/%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0-%D0%B8-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D1%81?node-id=1-3&starting-point-node-id=1%3A3&embed-host=share";
+const walletEmbedUrl =
+  "https://embed.figma.com/design/7bIiZ5oqV5OitqWtFa7AP3/%D0%9A%D0%BE%D1%88%D0%B5%D0%BB%D0%B5%D1%87%D0%B5%D0%BA?node-id=0-1&embed-host=share";
+const storageEmbedUrl =
+  "https://embed.figma.com/design/iT7hQ2qok9o5VKYWX0Wjdl/Storage?node-id=0-1&embed-host=share";
 
 const devRows = [
   ["Кошелечек", "2026", "Разработка B2C"],
   ["Storage", "2026", "Разработка B2B"],
+];
+
+const contactLetters = ["к", "о", "н", "т", "а", "к", "т", "ы"];
+const contactCirclePositions = [
+  "left-[366px] top-[-162px]",
+  "left-[132px] top-[-176px]",
+  "left-[252px] top-[-108px]",
+  "left-[330px] top-[-58px]",
+  "left-[412px] top-[-98px]",
+  "left-[92px] top-[-108px]",
+  "left-[478px] top-[-146px]",
+  "left-[592px] top-[-104px]",
 ];
 ---
 
@@ -212,20 +243,20 @@ const devRows = [
                 <span>{type}</span>
               </button>
               <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
-                <div class="pt-[10px] px-5 pb-5">
+                <div class="accordion-content-shell">
                   <div class="relative overflow-visible rounded-[10px]">
-                    <img src={identityImages[index].src} alt={name} class="h-auto w-full rounded-[8px] object-contain" />
+                    <img src={identityImages[index].src} alt={name} class="h-auto w-full object-contain" />
                     {
                       index === 2 && (
                         <img
                           src={bethanySticker.src}
                           alt="Bethany sticker"
-                          class="absolute bottom-[-36px] right-[-26px] h-[241px] w-[241px] rotate-[-14.31deg] object-contain opacity-100"
+                          class="absolute bottom-[-136px] left-[513px] h-[241px] w-[241px] rotate-[14.3deg] object-contain opacity-100"
                         />
                       )
                     }
                   </div>
-                  <p class="mt-4 text-[12px] leading-normal text-[#6c6c6a]">{identityDescriptions[index]}</p>
+                  <p class="accordion-text text-[12px] text-[#6c6c6a]">{identityDescriptions[index]}</p>
                 </div>
               </div>
             </div>
@@ -262,30 +293,70 @@ const devRows = [
               </button>
               <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
                 {index === 0 ? (
-                  <div class="pt-[10px] pb-5 pl-[20px] pr-[20px]">
+                  <div class="accordion-content-shell">
                     <div class="flex items-start">
-                      <img src={postcardsImage.src} alt="Открытки весна" class="w-[240px] rounded-[8px] object-contain" />
+                      <img src={postcardsImage.src} alt="Открытки весна" class="w-[240px] object-contain" />
                       <div class="ml-[36px] flex flex-col">
-                        <img src={postLetterImage.src} alt="Шаблон письма" class="w-[300px] rounded-[8px] object-contain" />
-                        <p class="mt-4 max-w-[300px] text-[12px] leading-normal text-[#6c6c6a]">
+                        <img src={postLetterImage.src} alt="Шаблон письма" class="w-[300px] object-contain" />
+                        <p class="accordion-text max-w-[300px] text-[12px] text-[#6c6c6a]">
                           {springDescription}
                         </p>
                       </div>
                     </div>
                   </div>
                 ) : index === 1 ? (
-                  <div class="pt-[10px] pb-5 pl-[20px] pr-[20px]">
+                  <div class="accordion-content-shell">
                     <div class="grid h-[334px] w-[728px] grid-cols-3 gap-[10px]">
-                      <img src={loveInLetters1.src} alt="Плакат 1" class="h-full w-full rounded-[8px] object-contain" />
-                      <img src={loveInLetters2.src} alt="Плакат 2" class="h-full w-full rounded-[8px] object-contain" />
-                      <img src={loveInLetters3.src} alt="Плакат 3" class="h-full w-full rounded-[8px] object-contain" />
+                      <img src={loveInLetters1.src} alt="Плакат 1" class="h-full w-full object-contain" />
+                      <img src={loveInLetters2.src} alt="Плакат 2" class="h-full w-full object-contain" />
+                      <img src={loveInLetters3.src} alt="Плакат 3" class="h-full w-full object-contain" />
                     </div>
-                    <p class="mt-4 whitespace-pre-line text-[12px] leading-normal text-[#6c6c6a]">
+                    <p class="accordion-text whitespace-pre-line text-[12px] text-[#6c6c6a]">
                       {loveLettersDescription}
                     </p>
                   </div>
+                ) : index === 2 ? (
+                  <div class="accordion-content-shell">
+                    <div class="flex items-start">
+                      <img src={mountainsImage.src} alt="Буклет Пятигорск" class="w-[470px] object-contain" />
+                      <p class="ml-[36px] w-[230px] text-[12px] leading-normal text-[#6c6c6a]">
+                        {mountainsDescription}
+                      </p>
+                    </div>
+                  </div>
+                ) : index === 3 ? (
+                  <div class="accordion-content-shell">
+                    <img src={noteImage.src} alt="Дизайн тетради" class="w-full object-contain" />
+                    <p class="accordion-text text-[12px] text-[#6c6c6a]">
+                      {noteDescription}
+                    </p>
+                  </div>
+                ) : index === 4 ? (
+                  <div class="accordion-content-shell">
+                    <img src={lastochkaImage.src} alt="Ласточка" class="w-full object-contain" />
+                    <div class="mt-[32px] flex items-start">
+                      <div class="grid w-[340px] grid-cols-2 gap-[10px]">
+                        <img src={lastochkaImage1.src} alt="Ласточка деталь 1" class="w-full object-contain" />
+                        <img src={lastochkaImage2.src} alt="Ласточка деталь 2" class="w-full object-contain" />
+                      </div>
+                      <p class="ml-[36px] w-[290px] text-[12px] leading-normal text-[#6c6c6a]">
+                        {lastochkaDescription}
+                      </p>
+                    </div>
+                  </div>
+                ) : index === 5 ? (
+                  <div class="accordion-content-shell">
+                    <iframe
+                      title="Меланхолия"
+                      src={melancholyEmbedUrl}
+                      class="h-[410px] w-[728px] border border-[rgba(0,0,0,0.1)]"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
                 ) : (
-                  <div class="px-[27px] py-4 text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</div>
+                  <div class="accordion-content-shell">
+                    <p class="text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</p>
+                  </div>
                 )}
               </div>
             </div>
@@ -326,7 +397,29 @@ const devRows = [
                 <span>{type}</span>
               </button>
               <div class="accordion-panel max-h-0 overflow-hidden bg-white transition-[max-height] duration-500 ease-in-out" data-accordion-panel>
-                <div class="px-[27px] py-4 text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</div>
+                {index === 0 ? (
+                  <div class="accordion-content-shell">
+                    <iframe
+                      title="Кошелечек"
+                      src={walletEmbedUrl}
+                      class="h-[410px] w-[728px] border border-[rgba(0,0,0,0.1)]"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                ) : index === 1 ? (
+                  <div class="accordion-content-shell">
+                    <iframe
+                      title="Storage"
+                      src={storageEmbedUrl}
+                      class="h-[410px] w-[728px] border border-[rgba(0,0,0,0.1)]"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                ) : (
+                  <div class="accordion-content-shell">
+                    <p class="text-[12px] text-[#6c6c6a]">Контент блока скоро добавим.</p>
+                  </div>
+                )}
               </div>
             </div>
           ))
@@ -334,17 +427,52 @@ const devRows = [
       </div>
     </section>
 
-    <section class="shiftable absolute left-[227px] top-[4456px] h-[448px] w-[784px]" data-fade data-envelope-block>
-      <div class="relative h-full w-full bg-[#bfc0c3] shadow-[0_10px_10px_rgba(0,0,0,0.25)]">
+    <section class="shiftable absolute bottom-[135px] left-[227px] h-[448px] w-[784px]" data-fade data-envelope-block>
+      <div class="relative h-full w-full bg-[#bfc0c3] shadow-[0_10px_10px_rgba(0,0,0,0.25)] [perspective:1200px]">
         <img src={envelopeBase.src} alt="" class="absolute bottom-0 left-0 h-[448px] w-[784px] object-cover" />
         <div
-          class="absolute left-1/2 top-[2px] z-20 h-[176px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100"
+          class="absolute left-1/2 top-[-1px] z-20 h-[172px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100"
           style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
           data-envelope-corner
         ></div>
         <div
-          class="absolute left-1/2 top-[0px] z-30 h-[172px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100 shadow-[0_4px_8px_rgba(0,0,0,0.2)]"
+          class="absolute left-1/2 top-0 z-[40] h-[448px] w-[784px] -translate-x-1/2"
+          data-envelope-payload
+        >
+          <a
+            href="https://t.me/skyggefox#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pointer-events-auto absolute left-[308px] top-[-392px] block h-[410px] w-[464px] opacity-0"
+            data-envelope-item
+            data-item="heart1"
+            data-envelope-link
+          >
+            <img src={heart1Image.src} alt="Telegram @skyggefox" class="h-full w-full object-contain" />
+          </a>
+          <img
+            src={heart3Image.src}
+            alt=""
+            class="pointer-events-none absolute left-[48px] top-[-372px] h-[212px] w-[240px] object-contain opacity-0"
+            data-envelope-item
+            data-item="heart3"
+          />
+          {
+            contactLetters.map((letter, idx) => (
+              <div
+                class={`pointer-events-none absolute ${contactCirclePositions[idx]} flex h-[72px] w-[72px] items-center justify-center rounded-full bg-black opacity-0`}
+                data-envelope-item
+                data-item={`letter-${idx}`}
+              >
+                <span class="text-center text-[36px] font-medium leading-none text-white">{letter}</span>
+              </div>
+            ))
+          }
+        </div>
+        <div
+          class="absolute left-1/2 top-[-1px] z-30 h-[172px] w-[784px] -translate-x-1/2 bg-[#7a7a7a] opacity-100 shadow-[0_4px_8px_rgba(0,0,0,0.2)] [will-change:transform] [transform-style:preserve-3d] [backface-visibility:visible]"
           style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
+          data-envelope-flap-top
         ></div>
         <p class="display-font absolute bottom-[51px] left-[25px] text-[96px] leading-none text-black">
           Дл<span class="text-[48px]">я</span> теб<span class="text-[48px]">я</span>
@@ -352,11 +480,13 @@ const devRows = [
       </div>
     </section>
 
-    <p class="shiftable absolute left-[1140px] top-[5123px] text-[24px]" data-footer-sign>Skygge 2026</p>
+    <p class="shiftable absolute bottom-[135px] left-[1140px] text-[24px]" data-footer-sign>Skygge 2026</p>
   </div>
 </main>
 
-<script is:inline>
+<script>
+  import gsap from "gsap";
+
   const nameToggle = document.getElementById("name-toggle");
 
   if (nameToggle) {
@@ -375,7 +505,7 @@ const devRows = [
   const accordionItems = Array.from(document.querySelectorAll("[data-accordion-item]"));
   const graphicsSection = document.getElementById("graphics");
   const devSection = document.getElementById("dev");
-  const envelopeBlock = document.querySelector("[data-envelope-block]");
+  const envelopeClickZone = document.querySelector("[data-envelope-block]");
   const footerSign = document.querySelector("[data-footer-sign]");
   const graphicsAfterAccordion = document.querySelector("[data-graphics-after-accordion]");
   let activeItem = null;
@@ -402,7 +532,7 @@ const devRows = [
     setTranslateY(graphicsSection, identityOffset);
     setTranslateY(graphicsAfterAccordion, graphicsOffset);
     setTranslateY(devSection, identityOffset + graphicsOffset);
-    setTranslateY(envelopeBlock, identityOffset + graphicsOffset + devOffset);
+    setTranslateY(envelopeClickZone, identityOffset + graphicsOffset + devOffset);
     setTranslateY(footerSign, identityOffset + graphicsOffset + devOffset);
   };
 
@@ -458,4 +588,142 @@ const devRows = [
   });
 
   updateAccordionLayout();
+
+  const envelopeFlapTop = document.querySelector("[data-envelope-flap-top]");
+  const envelopeItems = Array.from(document.querySelectorAll("[data-envelope-item]"));
+  let envelopeStep = 0;
+  let isEnvelopeAnimating = false;
+
+  if (envelopeFlapTop) {
+    gsap.set(envelopeFlapTop, {
+      transformOrigin: "50% 0%",
+      rotate: 0,
+      rotationX: 0,
+      y: 0,
+      force3D: true,
+    });
+  }
+
+  const getEnvelopeEnterState = (item, index) => {
+    const itemKey = item.getAttribute("data-item");
+    // Start all elements from the lower triangle center area.
+    if (itemKey === "heart1") return { fromX: 124, fromY: 552, rotate: 16 };
+    if (itemKey === "heart3") return { fromX: 344, fromY: 532, rotate: -16 };
+    const letterFromX = [26, 260, 140, 62, -20, 300, -86, -200];
+    const letterFromY = [322, 336, 268, 218, 258, 268, 306, 264];
+    const letterRotations = {
+      "letter-0": -24,
+      "letter-1": 0,
+      "letter-2": 0,
+      "letter-3": 0,
+      "letter-4": 0,
+      "letter-5": -34,
+      "letter-6": 26,
+      "letter-7": 0,
+    };
+    return {
+      fromX: letterFromX[index % letterFromX.length],
+      fromY: letterFromY[index % letterFromY.length],
+      rotate: letterRotations[itemKey] ?? 0,
+    };
+  };
+
+  const applyEnvelopeHiddenState = () => {
+    envelopeItems.forEach((item, index) => {
+      const state = getEnvelopeEnterState(item, index);
+      gsap.set(item, {
+        x: state.fromX,
+        y: state.fromY,
+        rotate: 0,
+        opacity: 0,
+        transformOrigin: "50% 50%",
+        force3D: true,
+      });
+    });
+  };
+
+  applyEnvelopeHiddenState();
+
+  const playEnvelopeOpen = () => {
+    if (!envelopeFlapTop) return Promise.resolve();
+    return gsap.to(envelopeFlapTop, {
+      rotationX: -172,
+      y: 0,
+      duration: 0.85,
+      ease: "power2.inOut",
+    });
+  };
+
+  const playEnvelopeItemsOut = () => {
+    const tl = gsap.timeline();
+    envelopeItems.forEach((item, index) => {
+      const state = getEnvelopeEnterState(item, index);
+      tl.to(
+        item,
+        {
+          x: 0,
+          y: 0,
+          rotate: state.rotate,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        index * 0.045,
+      );
+    });
+    return tl;
+  };
+
+  const playEnvelopeReset = () => {
+    const tl = gsap.timeline();
+    envelopeItems.forEach((item, index) => {
+      const state = getEnvelopeEnterState(item, index);
+      tl.to(
+        item,
+        {
+          x: state.fromX,
+          y: state.fromY,
+          rotate: 0,
+          opacity: 0,
+          duration: 0.65,
+          ease: "power2.inOut",
+        },
+        index * 0.03,
+      );
+    });
+    if (envelopeFlapTop) {
+      tl.to(
+        envelopeFlapTop,
+        {
+          rotationX: 0,
+          y: 0,
+          duration: 0.75,
+          ease: "power2.inOut",
+        },
+        "-=0.22",
+      );
+    }
+    return tl;
+  };
+
+  envelopeClickZone?.addEventListener("click", async (event) => {
+    if (event.target instanceof Element && event.target.closest("[data-envelope-link]")) return;
+    if (isEnvelopeAnimating) return;
+    isEnvelopeAnimating = true;
+
+    try {
+      if (envelopeStep === 0) {
+        await playEnvelopeOpen();
+        envelopeStep = 1;
+      } else if (envelopeStep === 1) {
+        await playEnvelopeItemsOut();
+        envelopeStep = 2;
+      } else {
+        await playEnvelopeReset();
+        envelopeStep = 0;
+      }
+    } finally {
+      isEnvelopeAnimating = false;
+    }
+  });
 </script>

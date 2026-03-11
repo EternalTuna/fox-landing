@@ -50,6 +50,24 @@ a {
   transition: transform 500ms ease-in-out;
   will-change: transform;
 }
+
+.accordion-content-shell {
+  padding-top: 32px;
+  padding-right: 29px;
+  padding-bottom: 68px;
+  padding-left: 27px;
+}
+
+.accordion-text {
+  width: min(450px, 100%);
+  max-width: 450px;
+  margin-top: 32px;
+  text-align: left;
+  text-wrap: pretty;
+  line-height: 1.45;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
 @font-face {
   font-family: "Skygge";
   src: url("../assets/Font/Skyggefont-Regular.ttf") format("truetype");
