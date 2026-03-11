@@ -130,6 +130,7 @@ const contactCirclePositions = [
         class="absolute inset-0 z-10 h-full w-full object-cover opacity-95"
         data-me-static
       />
+      <div class="hero-tiles absolute inset-0 z-15" data-hero-tiles></div>
       <div
         class="pointer-events-none absolute inset-0 z-20"
         style="background-image:linear-gradient(to right, rgba(255,255,255,0.8) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.8) 1px, transparent 1px);background-size:95px 96px;"
@@ -501,6 +502,104 @@ const contactCirclePositions = [
       nameToggle.style.fontWeight = nextState ? "600" : "400";
     });
   }
+
+  const heroTilesRoot = document.querySelector("[data-hero-tiles]");
+  const heroFront = document.querySelector("[data-me-static]");
+  const heroBack = document.querySelector("[data-me-undercover]");
+  const HERO_COLS = 12;
+  const HERO_ROWS = 7;
+  let heroFlipLocked = false;
+  let heroResetTimer = null;
+
+  const buildHeroTiles = () => {
+    if (!heroTilesRoot || !heroFront || !heroBack) return;
+    heroTilesRoot.innerHTML = "";
+    const tileInners = [];
+    const rootWidth = heroTilesRoot.clientWidth;
+    const rootHeight = heroTilesRoot.clientHeight;
+    const tileWidth = rootWidth / HERO_COLS;
+    const tileHeight = rootHeight / HERO_ROWS;
+
+    for (let row = 0; row < HERO_ROWS; row += 1) {
+      for (let col = 0; col < HERO_COLS; col += 1) {
+        const tile = document.createElement("div");
+        tile.className = "hero-tile";
+        tile.style.left = `${(col / HERO_COLS) * 100}%`;
+        tile.style.top = `${(row / HERO_ROWS) * 100}%`;
+        tile.style.width = `${100 / HERO_COLS}%`;
+        tile.style.height = `${100 / HERO_ROWS}%`;
+
+        const inner = document.createElement("div");
+        inner.className = "hero-tile-inner";
+
+        const frontFace = document.createElement("div");
+        frontFace.className = "hero-tile-face hero-tile-front";
+        frontFace.style.backgroundImage = `url(${heroFront.getAttribute("src")})`;
+        frontFace.style.backgroundSize = `${rootWidth}px ${rootHeight}px`;
+        frontFace.style.backgroundPosition = `${-col * tileWidth}px ${-row * tileHeight}px`;
+
+        const backFace = document.createElement("div");
+        backFace.className = "hero-tile-face hero-tile-back";
+        backFace.style.backgroundImage = `url(${heroBack.getAttribute("src")})`;
+        backFace.style.backgroundSize = `${rootWidth}px ${rootHeight}px`;
+        backFace.style.backgroundPosition = `${-col * tileWidth}px ${-row * tileHeight}px`;
+
+        inner.append(frontFace, backFace);
+        tile.appendChild(inner);
+        heroTilesRoot.appendChild(tile);
+        tileInners.push({ tile, inner });
+      }
+    }
+
+    const triggerHeroFlip = (pointerX, tile) => {
+      if (heroFlipLocked) return;
+      heroFlipLocked = true;
+
+      const tileRect = tile.getBoundingClientRect();
+      const fromLeft = pointerX < tileRect.left + tileRect.width / 2;
+      const targetRotation = fromLeft ? 180 : -180;
+        const transformOrigin = "50% 50%";
+
+      tileInners.forEach(({ inner }) => {
+        inner.style.transformOrigin = transformOrigin;
+      });
+
+      gsap.to(
+        tileInners.map(({ inner }) => inner),
+        {
+          rotationY: targetRotation,
+          duration: 1.10,
+          ease: "power2.inOut",
+          stagger: 0.002,
+        },
+      );
+
+      if (heroResetTimer) window.clearTimeout(heroResetTimer);
+      heroResetTimer = window.setTimeout(() => {
+        gsap.to(
+          tileInners.map(({ inner }) => inner),
+          {
+            rotationY: 0,
+            duration: 1.05,
+            ease: "power2.inOut",
+            onComplete: () => {
+              heroFlipLocked = false;
+            },
+          },
+        );
+      }, 10000);
+    };
+
+    heroTilesRoot.addEventListener("pointerover", (event) => {
+      const tile = event.target instanceof Element ? event.target.closest(".hero-tile") : null;
+      if (!tile) return;
+      if (event.relatedTarget instanceof Node && tile.contains(event.relatedTarget)) return;
+      triggerHeroFlip(event.clientX, tile);
+    });
+  };
+
+  buildHeroTiles();
+  window.addEventListener("resize", buildHeroTiles);
 
   const accordionItems = Array.from(document.querySelectorAll("[data-accordion-item]"));
   const graphicsSection = document.getElementById("graphics");

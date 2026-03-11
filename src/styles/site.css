@@ -68,6 +68,33 @@ a {
   word-break: normal;
   overflow-wrap: break-word;
 }
+
+.hero-tiles {
+  perspective: 1100px;
+}
+
+.hero-tile {
+  position: absolute;
+}
+
+.hero-tile-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-tile-face {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+}
+
+.hero-tile-back {
+  transform: rotateY(180deg);
+}
 @font-face {
   font-family: "Skygge";
   src: url("../assets/Font/Skyggefont-Regular.ttf") format("truetype");

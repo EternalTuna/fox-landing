@@ -1,8 +1,52 @@
 ---
 import MainLayout from "../layouts/mainlayout.astro";
 import DesktopLanding from "../components/DesktopLanding.astro";
+import LoadingState from "./loadingstate.astro";
 ---
 
 <MainLayout>
-  <DesktopLanding />
+  <LoadingState />
+  <div id="site-root" style="opacity:0; visibility:hidden;">
+    <DesktopLanding />
+  </div>
 </MainLayout>
+
+<script>
+  import gsap from "gsap";
+
+  const overlay = document.getElementById("loading-overlay");
+  const progressEl = document.getElementById("loading-progress");
+  const siteRoot = document.getElementById("site-root");
+
+  if (overlay && progressEl && siteRoot) {
+    let progress = 0;
+    const maxDurationMs = 3600;
+    const stepMs = 22;
+    const stepValue = 100 / (maxDurationMs / stepMs);
+
+    const timer = window.setInterval(() => {
+      progress = Math.min(100, progress + stepValue);
+      progressEl.textContent = `${Math.round(progress)}%`;
+      if (progress >= 100) {
+        window.clearInterval(timer);
+        const tl = gsap.timeline();
+        tl.to(overlay, {
+          opacity: 0,
+          duration: 0.45,
+          ease: "power2.out",
+        })
+          .set(overlay, { display: "none" })
+          .to(
+            siteRoot,
+            {
+              opacity: 1,
+              visibility: "visible",
+              duration: 0.7,
+              ease: "power2.out",
+            },
+            "-=0.12",
+          );
+      }
+    }, stepMs);
+  }
+</script>
