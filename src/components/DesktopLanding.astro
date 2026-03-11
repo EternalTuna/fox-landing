@@ -96,7 +96,7 @@ const contactCirclePositions = [
         Алиса Канапина
       </button>
     </div>
-    <nav class="absolute left-[720px] top-[81px] z-20 flex w-[570px] items-center gap-[64px] text-[24px] font-medium leading-normal text-[#6c6c6a]">
+    <nav class="absolute left-[765px] top-[81px] z-20 flex w-[570px] items-center gap-[64px] text-[24px] font-medium leading-normal text-[#6c6c6a]">
       <a
         class="whitespace-nowrap rounded-full px-3 py-1 transition-colors duration-300 hover:bg-[#e8ccd8] hover:text-[#272727]"
         href="#identity"
@@ -530,13 +530,11 @@ const contactCirclePositions = [
   const heroBack = document.querySelector("[data-me-undercover]");
   const HERO_COLS = 12;
   const HERO_ROWS = 7;
-  let heroFlipLocked = false;
-  let heroResetTimer = null;
 
   const buildHeroTiles = () => {
     if (!heroTilesRoot || !heroFront || !heroBack) return;
     heroTilesRoot.innerHTML = "";
-    const tileInners = [];
+    const tileStates = [];
     const rootWidth = heroTilesRoot.clientWidth;
     const rootHeight = heroTilesRoot.clientHeight;
     const tileWidth = rootWidth / HERO_COLS;
@@ -569,54 +567,38 @@ const contactCirclePositions = [
         inner.append(frontFace, backFace);
         tile.appendChild(inner);
         heroTilesRoot.appendChild(tile);
-        tileInners.push({ tile, inner });
+        tileStates.push({ tile, inner, timerId: null });
       }
     }
 
-    const triggerHeroFlip = (pointerX, tile) => {
-      if (heroFlipLocked) return;
-      heroFlipLocked = true;
-
-      const tileRect = tile.getBoundingClientRect();
+    const triggerTileFlip = (state, pointerX) => {
+      const tileRect = state.tile.getBoundingClientRect();
       const fromLeft = pointerX < tileRect.left + tileRect.width / 2;
       const targetRotation = fromLeft ? 180 : -180;
-        const transformOrigin = "50% 50%";
 
-      tileInners.forEach(({ inner }) => {
-        inner.style.transformOrigin = transformOrigin;
+      state.inner.style.transformOrigin = "50% 50%";
+      gsap.killTweensOf(state.inner);
+      gsap.to(state.inner, {
+        rotationY: targetRotation,
+        duration: 1.1,
+        ease: "power2.inOut",
       });
 
-      gsap.to(
-        tileInners.map(({ inner }) => inner),
-        {
-          rotationY: targetRotation,
-          duration: 1.10,
+      if (state.timerId) window.clearTimeout(state.timerId);
+      state.timerId = window.setTimeout(() => {
+        gsap.to(state.inner, {
+          rotationY: 0,
+          duration: 1.1,
           ease: "power2.inOut",
-          stagger: 0.002,
-        },
-      );
-
-      if (heroResetTimer) window.clearTimeout(heroResetTimer);
-      heroResetTimer = window.setTimeout(() => {
-        gsap.to(
-          tileInners.map(({ inner }) => inner),
-          {
-            rotationY: 0,
-            duration: 1.05,
-            ease: "power2.inOut",
-            onComplete: () => {
-              heroFlipLocked = false;
-            },
-          },
-        );
-      }, 10000);
+        });
+        state.timerId = null;
+      }, 5000);
     };
 
-    heroTilesRoot.addEventListener("pointerover", (event) => {
-      const tile = event.target instanceof Element ? event.target.closest(".hero-tile") : null;
-      if (!tile) return;
-      if (event.relatedTarget instanceof Node && tile.contains(event.relatedTarget)) return;
-      triggerHeroFlip(event.clientX, tile);
+    tileStates.forEach((state) => {
+      state.tile.addEventListener("pointerenter", (event) => {
+        triggerTileFlip(state, event.clientX);
+      });
     });
   };
 
