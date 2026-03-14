@@ -1,0 +1,172 @@
+<div id="m-loading-overlay" class="loading-overlay" aria-live="polite" aria-label="Loading screen">
+  <div class="loading-inner">
+    <div class="container" aria-hidden="true">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <p id="m-loading-progress" class="progress">0%</p>
+  </div>
+</div>
+
+<style>
+  .loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+
+  .loading-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+
+  .box {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #e8ccd8;
+  }
+
+  .box:nth-child(1) {
+    animation: a1 2s infinite linear;
+  }
+
+  .box:nth-child(2) {
+    animation: a2 2s infinite linear;
+  }
+
+  .progress {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: #6c6c6a;
+  }
+
+  @keyframes a1 {
+    0% {
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+    }
+    12.5% {
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 30px;
+    }
+    25% {
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 30px;
+    }
+    37.5% {
+      top: 0;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+    }
+    50% {
+      top: 0;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+    }
+    62.5% {
+      top: 0;
+      left: 30px;
+      width: 30px;
+      height: 60px;
+    }
+    75% {
+      top: 0;
+      left: 30px;
+      width: 30px;
+      height: 60px;
+    }
+    87.5% {
+      top: 30px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+    }
+    100% {
+      top: 30px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @keyframes a2 {
+    0% {
+      right: 0;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+    }
+    12.5% {
+      right: 0;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+    }
+    25% {
+      right: 0;
+      bottom: 0;
+      width: 60px;
+      height: 30px;
+    }
+    37.5% {
+      right: 0;
+      bottom: 0;
+      width: 60px;
+      height: 30px;
+    }
+    50% {
+      right: 30px;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+    }
+    62.5% {
+      right: 30px;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+    }
+    75% {
+      right: 30px;
+      bottom: 0;
+      width: 30px;
+      height: 60px;
+    }
+    87.5% {
+      right: 30px;
+      bottom: 0;
+      width: 30px;
+      height: 60px;
+    }
+    100% {
+      right: 30px;
+      bottom: 30px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>

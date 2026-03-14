@@ -1,0 +1,42 @@
+<a
+  href="/m-index"
+  class="testing-btn"
+  aria-label="Open mobile version for testing"
+>
+  Mobile test
+</a>
+
+<style>
+  .testing-btn {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10001;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid #272727;
+    background: #ffffff;
+    color: #272727;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .testing-btn:hover {
+    background: #e8ccd8;
+    color: #272727;
+    transform: translateY(-1px);
+  }
+
+  .testing-btn:active {
+    transform: translateY(0);
+  }
+</style>

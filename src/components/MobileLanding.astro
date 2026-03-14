@@ -1,0 +1,394 @@
+---
+import identica1 from "../assets1/Identica.png";
+import imgPattern from "../assets1/design.png";
+import devImage from "../assets1/developing.png";
+import meStatic from "../assets1/Me-static.png";
+import designerAvatar from "../assets1/photoCard.png";
+import developerAvatar from "../assets1/devHero.png";
+import envelopeBase from "../assets1/envelope-base.png";
+import festImage from "../assets1/fest.png";
+import ladaImage from "../assets1/lada.png";
+import bethanyImage from "../assets1/bethany.png";
+import bethanySticker from "../assets1/bethany2.png";
+import postcardsImage from "../assets1/postcards.png";
+import postLetterImage from "../assets1/post-letter.png";
+import loveInLetters1 from "../assets1/loveinletters1.png";
+import loveInLetters2 from "../assets1/loveinletters2.png";
+import loveInLetters3 from "../assets1/loveinletters3.png";
+import mountainsImage from "../assets1/5mountains.png";
+import noteImage from "../assets1/note1.png";
+import lastochkaImage from "../assets1/lastochka.png";
+import lastochkaImage1 from "../assets1/lastochka1.png";
+import lastochkaImage2 from "../assets1/lastochka2.png";
+
+const identityRows = [
+  ["Брендинг ПрибойФест", "2025", "Айдентика события"],
+  ["Каталог АвтоВаз", "2025", "Айдентика"],
+  ["Брендинг BethanyBase", "2025", "Айдентика бренда"],
+];
+
+const identityImages = [festImage, ladaImage, bethanyImage];
+const identityDescriptions = [
+  "Визуальный стиль ПрибойФеста строиться на природных цветах прибрежья. Синий - море, желтый - небо во время заката, песочный - пляж. Весь визуал работает на то, чтобы посетители почувствовали себя в среде \"как рыбка в воде\".",
+  "Интерактивный каталог моделей АвтоВаз в стиле классической советской верстки. Элементы и цветовая гамма были подобраны на основе раритетных каталогов авто 1960 - 1970 годов выпуска.",
+  "Полная разработка бренда. Начиная от позиции, заканчивая печатной продукцией и упаковкой. Конечным результатом был брендбук.",
+];
+
+const graphicRows = [
+  ["Открытки весна", "2023", "Печатная продукция"],
+  ["Любовь в мелочах и стихах", "2024", "Плакат"],
+  ["Буклет Пятигорск", "2024", "Печатная продукция"],
+  ["Дизайн тетради", "2025", "Печатная продукция"],
+  ["Ласточка", "2025", "Иллюстрации для книги"],
+  ["Меланхолия", "2026", "Плакат"],
+];
+
+const springDescription =
+  "Милые открытки с векторными рисунками весенних растений, объединенные общей цветовой палитрой и стилем.";
+const loveLettersDescription =
+  "Идея создать серию плакатов возникла сразу когда наткнулась на подборку архивных фото. Хотелось соединить теплые моменты с чувственными словами.";
+const mountainsDescription =
+  "Это фигурный буклет для туристического маршрута 6 - Пятигорск Лермонтова. В сложенном состоянии фигуры складываются в одну композицию.";
+const noteDescription =
+  "Я разработала этот дизайн тетради для своей бабушки, чтобы она не теряла важные записи и держала все в одном месте.";
+const lastochkaDescription =
+  "Когда я прочитала Ласточку, в голове сразу возникла метафора на материнство, и я решила изобразить историю именно так.";
+const melancholyEmbedUrl =
+  "https://embed.figma.com/proto/0LkhO4fS9qv5nrriaO9res/%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0-%D0%B8-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D1%81?node-id=1-3&starting-point-node-id=1%3A3&embed-host=share";
+
+const devRows = [
+  ["Кошелечек", "2026", "Разработка B2C"],
+  ["Storage", "2026", "Разработка B2B"],
+];
+const walletEmbedUrl =
+  "https://embed.figma.com/design/7bIiZ5oqV5OitqWtFa7AP3/%D0%9A%D0%BE%D1%88%D0%B5%D0%BB%D0%B5%D1%87%D0%B5%D0%BA?node-id=0-1&embed-host=share";
+const storageEmbedUrl =
+  "https://embed.figma.com/design/iT7hQ2qok9o5VKYWX0Wjdl/Storage?node-id=0-1&embed-host=share";
+---
+
+<main class="mx-auto w-full max-w-[430px] bg-white px-4 pb-16 pt-6 text-[#272727]">
+  <header class="flex items-end justify-between gap-3">
+    <button
+      id="m-name-toggle"
+      type="button"
+      class="display-font bg-transparent text-[42px] leading-none text-[#6c6c6a] outline-none transition-all duration-300"
+      aria-pressed="false"
+    >
+      Алиса Канапина
+    </button>
+    <p class="text-[12px] font-medium text-[#6c6c6a]">Skygge</p>
+  </header>
+
+  <nav class="sticky top-2 z-20 mt-4 rounded-full border border-[#d9d9d9] bg-white/90 px-3 py-2 backdrop-blur">
+    <ul class="flex items-center justify-between gap-2 text-[12px] font-medium text-[#6c6c6a]">
+      <li><a href="#m-identity" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">Айдентика</a></li>
+      <li><a href="#m-graphics" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">Графика</a></li>
+      <li><a href="#m-dev" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">UX/UI</a></li>
+    </ul>
+  </nav>
+
+  <section class="mt-4 overflow-hidden rounded-[14px] bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]">
+    <div class="relative h-[220px] w-full">
+      <img src={meStatic.src} alt="Алиса Канапина" class="absolute inset-0 h-full w-full object-cover" />
+      <div
+        class="pointer-events-none absolute inset-0"
+        style="background-image:linear-gradient(to right, rgba(255,255,255,0.66) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.66) 1px, transparent 1px);background-size:32px 32px;"
+      ></div>
+    </div>
+  </section>
+
+  <section class="mt-7 rounded-[16px] bg-[#f7f7f7] p-4">
+    <p class="display-font text-[32px] text-[#6c6c6a]">ОБО МНЕ</p>
+    <p class="mt-4 text-[13px] leading-[1.45] text-[#6c6c6a]">
+      Привет! Я Алиса (≧◡≦) ♡ Мой творческий псевдоним - Skygge. Я графический дизайнер и frontend-разработчик из Санкт-Петербурга.
+      Мне интересно развиваться на стыке дизайна и разработки и превращать идеи в удобные цифровые продукты.
+    </p>
+  </section>
+
+  <section class="mt-4 rounded-[16px] bg-[#f7f7f7] p-4">
+    <p class="display-font text-[32px] text-[#6c6c6a]">ОБРАЗОВАНИЕ</p>
+    <div class="mt-4 space-y-4 text-[#6c6c6a]">
+      <div>
+        <p class="text-[14px] font-medium">2023 - 2025</p>
+        <p class="mt-1 text-[12px]">МТКС Графический дизайн (диплом с отличием)</p>
+        <p class="text-[12px] text-[#e8ccd8]">+ призер конкурса Профмастерства</p>
+      </div>
+      <div>
+        <p class="text-[14px] font-medium">2025</p>
+        <p class="mt-1 text-[12px]">СПБГУТ им. Бонч-Бруевича Информационные системы и технологии</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-6 grid grid-cols-1 gap-4">
+    <article class="rounded-[16px] bg-[#e8ccd8] p-4">
+      <p class="display-font text-[28px] leading-none">Удостоверение дизайнера</p>
+      <div class="mt-3 flex items-start gap-3">
+        <img src={designerAvatar.src} alt="" class="h-[92px] w-[92px] rounded-[10px] object-cover" />
+        <p class="text-[12px] leading-[1.45]">Дизайн айдентики, печатные макеты, композиция, типографика.</p>
+      </div>
+    </article>
+    <article class="rounded-[16px] bg-[#272727] p-4 text-white">
+      <p class="display-font text-[28px] leading-none text-[#e8ccd8]">Удостоверение разработчика</p>
+      <div class="mt-3 flex items-start gap-3">
+        <img src={developerAvatar.src} alt="" class="h-[92px] w-[92px] rounded-[10px] object-cover" />
+        <p class="text-[12px] leading-[1.45]">Frontend, UI-архитектура, адаптивная верстка, интерактивные интерфейсы.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-identity" class="mt-8">
+    <img src={identica1.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
+    <div class="mt-4">
+      <p class="display-font text-[54px] leading-none text-[#e8ccd8]">Айдентика</p>
+      <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Проекты, связанные с разработкой фирменного стиля и брендинга.</p>
+    </div>
+    <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="identity">
+      {
+        identityRows.map(([name, year, type], index) => (
+          <div class={`m-accordion-item ${index < identityRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}>
+            <button
+              type="button"
+              class="m-accordion-trigger grid min-h-[58px] w-full grid-cols-[1fr_58px] gap-2 px-3 py-2 text-left text-[11px] text-[#272727] transition-colors hover:bg-[#e8ccd8] hover:text-white"
+              data-m-accordion-trigger
+            >
+              <span>{name}<span class="block text-[10px] opacity-70">{type}</span></span>
+              <span>{year}</span>
+            </button>
+            <div class="m-accordion-panel max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out" data-m-accordion-panel>
+              <div class="px-3 pb-5 pt-4">
+                <div class="relative">
+                  <img src={identityImages[index].src} alt={name} class="h-auto w-full object-contain" />
+                  {index === 2 && <img src={bethanySticker.src} alt="" class="absolute -bottom-10 right-2 h-[110px] w-[110px] rotate-[14.3deg] object-contain" />}
+                </div>
+                <p class="mt-4 w-full max-w-[450px] text-[12px] leading-[1.45] text-[#6c6c6a]">{identityDescriptions[index]}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="m-graphics" class="mt-10">
+    <img src={imgPattern.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
+    <div class="mt-4">
+      <p class="display-font text-[54px] leading-none text-[#e8ccd8]">Графика</p>
+      <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Иллюстрации, плакаты и печатная продукция.</p>
+    </div>
+    <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="graphics">
+      {
+        graphicRows.map(([name, year, type], index) => (
+          <div class={`m-accordion-item ${index < graphicRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}>
+            <button
+              type="button"
+              class="m-accordion-trigger grid min-h-[58px] w-full grid-cols-[1fr_58px] gap-2 px-3 py-2 text-left text-[11px] text-[#272727] transition-colors hover:bg-[#e8ccd8] hover:text-white"
+              data-m-accordion-trigger
+            >
+              <span>{name}<span class="block text-[10px] opacity-70">{type}</span></span>
+              <span>{year}</span>
+            </button>
+            <div class="m-accordion-panel max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out" data-m-accordion-panel>
+              <div class="px-3 pb-5 pt-4 text-[#6c6c6a]">
+                {
+                  index === 0 && (
+                    <>
+                      <div class="grid grid-cols-[1fr_1fr] gap-2">
+                        <img src={postcardsImage.src} alt="" class="h-full w-full object-cover" />
+                        <img src={postLetterImage.src} alt="" class="h-full w-full object-cover" />
+                      </div>
+                      <p class="mt-4 max-w-[450px] text-[12px] leading-[1.45]">{springDescription}</p>
+                    </>
+                  )
+                }
+                {
+                  index === 1 && (
+                    <>
+                      <div class="grid grid-cols-3 gap-2">
+                        <img src={loveInLetters1.src} alt="" class="h-full w-full object-cover" />
+                        <img src={loveInLetters2.src} alt="" class="h-full w-full object-cover" />
+                        <img src={loveInLetters3.src} alt="" class="h-full w-full object-cover" />
+                      </div>
+                      <p class="mt-4 max-w-[450px] text-[12px] leading-[1.45]">{loveLettersDescription}</p>
+                    </>
+                  )
+                }
+                {
+                  index === 2 && (
+                    <>
+                      <img src={mountainsImage.src} alt="" class="h-auto w-full object-contain" />
+                      <p class="mt-4 max-w-[450px] text-[12px] leading-[1.45]">{mountainsDescription}</p>
+                    </>
+                  )
+                }
+                {
+                  index === 3 && (
+                    <>
+                      <img src={noteImage.src} alt="" class="h-auto w-full object-contain" />
+                      <p class="mt-4 max-w-[450px] text-[12px] leading-[1.45]">{noteDescription}</p>
+                    </>
+                  )
+                }
+                {
+                  index === 4 && (
+                    <>
+                      <img src={lastochkaImage.src} alt="" class="h-auto w-full object-contain" />
+                      <div class="mt-2 grid grid-cols-2 gap-2">
+                        <img src={lastochkaImage1.src} alt="" class="h-auto w-full object-contain" />
+                        <img src={lastochkaImage2.src} alt="" class="h-auto w-full object-contain" />
+                      </div>
+                      <p class="mt-4 max-w-[450px] text-[12px] leading-[1.45]">{lastochkaDescription}</p>
+                    </>
+                  )
+                }
+                {
+                  index === 5 && (
+                    <div
+                      class="h-[220px] w-full border border-black/10"
+                      data-m-iframe-host
+                      data-m-iframe-src={melancholyEmbedUrl}
+                      data-m-iframe-title="Melancholy prototype"
+                    ></div>
+                  )
+                }
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="m-dev" class="mt-10">
+    <img src={devImage.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
+    <div class="mt-4">
+      <p class="display-font text-[54px] leading-none text-[#e8ccd8]">UX/UI</p>
+      <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Интерфейсы и продуктовая разработка.</p>
+    </div>
+    <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="dev">
+      {
+        devRows.map(([name, year, type], index) => (
+          <div class={`m-accordion-item ${index < devRows.length - 1 ? "border-b border-[#6c6c6a]" : ""}`}>
+            <button
+              type="button"
+              class="m-accordion-trigger grid min-h-[58px] w-full grid-cols-[1fr_58px] gap-2 px-3 py-2 text-left text-[11px] text-[#272727] transition-colors hover:bg-[#e8ccd8] hover:text-white"
+              data-m-accordion-trigger
+            >
+              <span>{name}<span class="block text-[10px] opacity-70">{type}</span></span>
+              <span>{year}</span>
+            </button>
+            <div class="m-accordion-panel max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out" data-m-accordion-panel>
+              <div class="px-3 pb-5 pt-4">
+                <div
+                  class="h-[220px] w-full border border-black/10"
+                  data-m-iframe-host
+                  data-m-iframe-src={index === 0 ? walletEmbedUrl : storageEmbedUrl}
+                  data-m-iframe-title={name}
+                ></div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="mt-10 overflow-hidden rounded-[14px] bg-[#bfc0c3]">
+    <div class="relative h-[240px] w-full">
+      <img src={envelopeBase.src} alt="" class="absolute inset-0 h-full w-full object-cover" />
+      <p class="display-font absolute bottom-5 left-4 text-[56px] leading-none text-black">
+        Дл<span class="text-[28px]">я</span> теб<span class="text-[28px]">я</span>
+      </p>
+    </div>
+  </section>
+
+  <p class="mt-6 text-right text-[14px] text-[#6c6c6a]">Skygge 2026</p>
+</main>
+
+<script>
+  const nameToggle = document.getElementById("m-name-toggle");
+  const navLinks = Array.from(document.querySelectorAll("[data-m-nav-link]"));
+  const groups = Array.from(document.querySelectorAll("[data-m-accordion-group]"));
+
+  if (nameToggle) {
+    let toggled = false;
+    nameToggle.addEventListener("click", () => {
+      toggled = !toggled;
+      nameToggle.textContent = toggled ? "Skygge" : "Алиса Канапина";
+      nameToggle.classList.toggle("text-[#e8ccd8]", toggled);
+      nameToggle.classList.toggle("display-font", !toggled);
+      nameToggle.setAttribute("aria-pressed", String(toggled));
+    });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const href = link.getAttribute("href");
+      if (!href) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  const mountPanelIframes = (panel) => {
+    const hosts = Array.from(panel.querySelectorAll("[data-m-iframe-host]"));
+    hosts.forEach((host) => {
+      if (host.querySelector("iframe")) return;
+      const src = host.getAttribute("data-m-iframe-src");
+      if (!src) return;
+      const iframe = document.createElement("iframe");
+      iframe.src = src;
+      iframe.title = host.getAttribute("data-m-iframe-title") || "Figma embed";
+      iframe.className = "h-full w-full";
+      iframe.loading = "lazy";
+      iframe.setAttribute("allowfullscreen", "");
+      host.appendChild(iframe);
+    });
+  };
+
+  const unmountPanelIframes = (panel) => {
+    const hosts = Array.from(panel.querySelectorAll("[data-m-iframe-host]"));
+    hosts.forEach((host) => {
+      const iframe = host.querySelector("iframe");
+      if (iframe) iframe.remove();
+    });
+  };
+
+  groups.forEach((group) => {
+    const items = Array.from(group.querySelectorAll(".m-accordion-item"));
+    let activeItem = null;
+
+    items.forEach((item) => {
+      const trigger = item.querySelector("[data-m-accordion-trigger]");
+      const panel = item.querySelector("[data-m-accordion-panel]");
+      if (!trigger || !panel) return;
+
+      trigger.addEventListener("click", () => {
+        const isOpen = item === activeItem;
+
+        items.forEach((it) => {
+          const tr = it.querySelector("[data-m-accordion-trigger]");
+          const pa = it.querySelector("[data-m-accordion-panel]");
+          if (!tr || !pa) return;
+          tr.classList.remove("bg-[#e8ccd8]", "text-white");
+          tr.setAttribute("aria-expanded", "false");
+          pa.style.maxHeight = "0px";
+          unmountPanelIframes(pa);
+        });
+
+        if (isOpen) {
+          activeItem = null;
+          return;
+        }
+
+        trigger.classList.add("bg-[#e8ccd8]", "text-white");
+        trigger.setAttribute("aria-expanded", "true");
+        mountPanelIframes(panel);
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
+        activeItem = item;
+      });
+    });
+  });
+</script>

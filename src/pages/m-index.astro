@@ -1,24 +1,23 @@
 ---
 import MainLayout from "../layouts/mainlayout.astro";
-import DesktopLanding from "../components/DesktopLanding.astro";
-import LoadingState from "./loadingstate.astro";
-import TestingBtn from "../components/testingbtn.astro";
+import MobileLanding from "../components/MobileLanding.astro";
+import MobileLoadingState from "./m-loadingstate.astro";
 ---
 
 <MainLayout>
-  <LoadingState />
-  <TestingBtn />
-  <div id="site-root" style="opacity:0; visibility:hidden;">
-    <DesktopLanding />
+  <MobileLoadingState />
+
+  <div id="m-site-root" style="opacity:0; visibility:hidden;">
+    <MobileLanding />
   </div>
 </MainLayout>
 
 <script>
   import gsap from "gsap";
 
-  const overlay = document.getElementById("loading-overlay");
-  const progressEl = document.getElementById("loading-progress");
-  const siteRoot = document.getElementById("site-root");
+  const overlay = document.getElementById("m-loading-overlay");
+  const progressEl = document.getElementById("m-loading-progress");
+  const siteRoot = document.getElementById("m-site-root");
 
   if (overlay && progressEl && siteRoot) {
     let progress = 0;
