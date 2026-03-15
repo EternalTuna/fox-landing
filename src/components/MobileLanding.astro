@@ -2,7 +2,8 @@
 import identica1 from "../assets1/Identica.png";
 import imgPattern from "../assets1/design.png";
 import devImage from "../assets1/developing.png";
-import meStatic from "../assets1/Me-static.png";
+import meStaticMobile from "../assets1/me-static-m.png";
+import meUndercoverMobile from "../assets1/me-undercover-m.png";
 import designerAvatar from "../assets1/photoCard.png";
 import developerAvatar from "../assets1/devHero.png";
 import envelopeBase from "../assets1/envelope-base.png";
@@ -20,6 +21,8 @@ import noteImage from "../assets1/note1.png";
 import lastochkaImage from "../assets1/lastochka.png";
 import lastochkaImage1 from "../assets1/lastochka1.png";
 import lastochkaImage2 from "../assets1/lastochka2.png";
+import heart1Image from "../assets1/Heart1.png";
+import heart3Image from "../assets1/Heart3.png";
 
 const identityRows = [
   ["Брендинг ПрибойФест", "2025", "Айдентика события"],
@@ -64,6 +67,17 @@ const walletEmbedUrl =
   "https://embed.figma.com/design/7bIiZ5oqV5OitqWtFa7AP3/%D0%9A%D0%BE%D1%88%D0%B5%D0%BB%D0%B5%D1%87%D0%B5%D0%BA?node-id=0-1&embed-host=share";
 const storageEmbedUrl =
   "https://embed.figma.com/design/iT7hQ2qok9o5VKYWX0Wjdl/Storage?node-id=0-1&embed-host=share";
+const mobileContactLetters = ["к", "о", "н", "т", "а", "к", "т", "ы"];
+const mobileLetterTargets = [
+  { x: -126, y: 6, r: -8 },
+  { x: -88, y: -28, r: 6 },
+  { x: -40, y: -10, r: -4 },
+  { x: 4, y: -36, r: 7 },
+  { x: 52, y: -18, r: -6 },
+  { x: 94, y: 0, r: 5 },
+  { x: 128, y: 32, r: -7 },
+  { x: -6, y: 20, r: 4 },
+];
 ---
 
 <main class="mx-auto w-full max-w-[430px] bg-white px-4 pb-16 pt-6 text-[#272727]">
@@ -87,13 +101,12 @@ const storageEmbedUrl =
     </ul>
   </nav>
 
-  <section class="mt-4 overflow-hidden rounded-[14px] bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]">
-    <div class="relative h-[220px] w-full">
-      <img src={meStatic.src} alt="Алиса Канапина" class="absolute inset-0 h-full w-full object-cover" />
-      <div
-        class="pointer-events-none absolute inset-0"
-        style="background-image:linear-gradient(to right, rgba(255,255,255,0.66) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.66) 1px, transparent 1px);background-size:32px 32px;"
-      ></div>
+  <section class="mx-auto mt-4 w-full max-w-[344.92px] overflow-hidden bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]">
+    <div class="relative h-[586px] w-full">
+      <img src={meUndercoverMobile.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-0" data-m-me-undercover />
+      <img src={meStaticMobile.src} alt="Алиса Канапина" class="absolute inset-0 z-10 h-full w-full object-cover opacity-0" data-m-me-static />
+      <div class="hero-tiles absolute inset-0 z-15" data-m-hero-tiles></div>
+      <div class="pointer-events-none absolute inset-0 z-20" data-m-hero-grid></div>
     </div>
   </section>
 
@@ -138,11 +151,11 @@ const storageEmbedUrl =
   </section>
 
   <section id="m-identity" class="mt-8">
-    <img src={identica1.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
-    <div class="mt-4">
+    <div>
       <p class="display-font text-[54px] leading-none text-[#e8ccd8]">Айдентика</p>
       <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Проекты, связанные с разработкой фирменного стиля и брендинга.</p>
     </div>
+    <img src={identica1.src} alt="" class="mt-4 h-[138px] w-full rounded-[14px] object-cover" />
     <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="identity">
       {
         identityRows.map(([name, year, type], index) => (
@@ -171,11 +184,11 @@ const storageEmbedUrl =
   </section>
 
   <section id="m-graphics" class="mt-10">
-    <img src={imgPattern.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
-    <div class="mt-4">
+    <div>
       <p class="display-font text-[54px] leading-none text-[#e8ccd8]">Графика</p>
       <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Иллюстрации, плакаты и печатная продукция.</p>
     </div>
+    <img src={imgPattern.src} alt="" class="mt-4 h-[138px] w-full rounded-[14px] object-cover" />
     <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="graphics">
       {
         graphicRows.map(([name, year, type], index) => (
@@ -260,11 +273,11 @@ const storageEmbedUrl =
   </section>
 
   <section id="m-dev" class="mt-10">
-    <img src={devImage.src} alt="" class="h-[138px] w-full rounded-[14px] object-cover" />
     <div class="mt-4">
-      <p class="display-font text-[54px] leading-none text-[#e8ccd8]">UX/UI</p>
+      <p class="display-font text-[54px] leading-none text-[#e8ccd8]">Разработка</p>
       <p class="mt-2 text-[12px] leading-[1.45] text-[#6c6c6a]">Интерфейсы и продуктовая разработка.</p>
     </div>
+    <img src={devImage.src} alt="" class="mt-4 h-[138px] w-full rounded-[14px] object-cover" />
     <div class="mt-4 border-y border-[#6c6c6a]" data-m-accordion-group="dev">
       {
         devRows.map(([name, year, type], index) => (
@@ -293,9 +306,59 @@ const storageEmbedUrl =
     </div>
   </section>
 
-  <section class="mt-10 overflow-hidden rounded-[14px] bg-[#bfc0c3]">
-    <div class="relative h-[240px] w-full">
+  <section class="relative z-20 mt-[215px] overflow-visible rounded-[14px] bg-[#bfc0c3]" data-m-envelope-block>
+    <div class="relative h-[240px] w-full cursor-pointer [perspective:1200px]">
       <img src={envelopeBase.src} alt="" class="absolute inset-0 h-full w-full object-cover" />
+      <div
+        class="absolute inset-x-0 top-[2px] z-20 h-[96px] bg-[#7a7a7a]"
+        style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
+        data-m-envelope-corner
+      ></div>
+      <div class="pointer-events-none absolute bottom-0 left-0 right-0 top-[-215px] z-40 overflow-visible" data-m-envelope-payload>
+        <a
+          href="https://t.me/skyggefox#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="pointer-events-none absolute left-1/2 top-[261px] block h-[118px] w-[134px] -translate-x-1/2 -translate-y-1/2 opacity-0"
+          data-m-envelope-item
+          data-m-item="heart1"
+          data-to-x="74"
+          data-to-y="-24"
+          data-to-r="14"
+          data-m-envelope-link
+        >
+          <img src={heart1Image.src} alt="Telegram @skyggefox" class="h-full w-full object-contain" />
+        </a>
+        <img
+          src={heart3Image.src}
+          alt=""
+          class="pointer-events-none absolute left-1/2 top-[261px] h-[78px] w-[88px] -translate-x-1/2 -translate-y-1/2 opacity-0"
+          data-m-envelope-item
+          data-m-item="heart3"
+          data-to-x="-72"
+          data-to-y="-8"
+          data-to-r="-16"
+        />
+        {
+          mobileContactLetters.map((letter, idx) => (
+            <div
+              class="pointer-events-none absolute left-1/2 top-[261px] flex h-[36px] w-[36px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black opacity-0"
+              data-m-envelope-item
+              data-m-item={`letter-${idx}`}
+              data-to-x={mobileLetterTargets[idx].x}
+              data-to-y={mobileLetterTargets[idx].y}
+              data-to-r={mobileLetterTargets[idx].r}
+            >
+              <span class="text-center text-[20px] font-medium leading-none text-white">{letter}</span>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 top-[2px] z-30 h-[96px] bg-[#7a7a7a] [backface-visibility:visible] [transform-style:preserve-3d] [will-change:transform]"
+        style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
+        data-m-envelope-flap-top
+      ></div>
       <p class="display-font absolute bottom-5 left-4 text-[56px] leading-none text-black">
         Дл<span class="text-[28px]">я</span> теб<span class="text-[28px]">я</span>
       </p>
@@ -306,9 +369,348 @@ const storageEmbedUrl =
 </main>
 
 <script>
+  import gsap from "gsap";
+
   const nameToggle = document.getElementById("m-name-toggle");
   const navLinks = Array.from(document.querySelectorAll("[data-m-nav-link]"));
   const groups = Array.from(document.querySelectorAll("[data-m-accordion-group]"));
+  const heroTilesRoot = document.querySelector("[data-m-hero-tiles]");
+  const heroGridRoot = document.querySelector("[data-m-hero-grid]");
+  const heroFront = document.querySelector("[data-m-me-static]");
+  const heroBack = document.querySelector("[data-m-me-undercover]");
+  const HERO_COLS = 7;
+  const HERO_ROWS = 12;
+  const HERO_GRID_LINE_SIZE = 1.2;
+  const HERO_GRID_LINE_COLOR = "rgba(255,255,255,0.72)";
+  const HERO_TOUCH_DRAG_THRESHOLD = 8;
+  const HERO_TOUCH_AXIS_RATIO = 1.05;
+  let heroTileStateByElement = new Map();
+  let heroTileStateGrid = [];
+  const envelopeBlock = document.querySelector("[data-m-envelope-block]");
+  const envelopeFlapTop = document.querySelector("[data-m-envelope-flap-top]");
+  const envelopeItems = Array.from(document.querySelectorAll("[data-m-envelope-item]"));
+  const envelopeLink = document.querySelector("[data-m-envelope-link]");
+
+  const triggerTileFlip = (state, pointerX) => {
+    const tileRect = state.tile.getBoundingClientRect();
+    const fromLeft = pointerX < tileRect.left + tileRect.width / 2;
+    const targetRotation = fromLeft ? 180 : -180;
+
+    state.inner.style.transformOrigin = "50% 50%";
+    gsap.killTweensOf(state.inner);
+    gsap.to(state.inner, {
+      rotationY: targetRotation,
+      duration: 1.1,
+      ease: "power2.inOut",
+    });
+
+    if (state.timerId) window.clearTimeout(state.timerId);
+    state.timerId = window.setTimeout(() => {
+      gsap.to(state.inner, {
+        rotationY: 0,
+        duration: 1.1,
+        ease: "power2.inOut",
+      });
+      state.timerId = null;
+    }, 5000);
+  };
+
+  const buildHeroTiles = () => {
+    if (!heroTilesRoot || !heroFront || !heroBack) return;
+    heroTilesRoot.innerHTML = "";
+    if (heroGridRoot) heroGridRoot.innerHTML = "";
+
+    const tileStates = [];
+    heroTileStateGrid = Array.from({ length: HERO_ROWS }, () => Array(HERO_COLS).fill(null));
+    const rootWidth = heroTilesRoot.clientWidth;
+    const rootHeight = heroTilesRoot.clientHeight;
+    const tileWidth = rootWidth / HERO_COLS;
+    const tileHeight = rootHeight / HERO_ROWS;
+
+    for (let row = 0; row < HERO_ROWS; row += 1) {
+      for (let col = 0; col < HERO_COLS; col += 1) {
+        const x1 = Math.round(col * tileWidth);
+        const y1 = Math.round(row * tileHeight);
+        const x2 = Math.round((col + 1) * tileWidth);
+        const y2 = Math.round((row + 1) * tileHeight);
+
+        const tile = document.createElement("div");
+        tile.className = "hero-tile";
+        tile.style.left = `${x1}px`;
+        tile.style.top = `${y1}px`;
+        tile.style.width = `${Math.max(1, x2 - x1)}px`;
+        tile.style.height = `${Math.max(1, y2 - y1)}px`;
+
+        const inner = document.createElement("div");
+        inner.className = "hero-tile-inner";
+
+        const frontFace = document.createElement("div");
+        frontFace.className = "hero-tile-face hero-tile-front";
+        frontFace.style.backgroundImage = `url(${heroFront.getAttribute("src")})`;
+        frontFace.style.backgroundSize = `${rootWidth}px ${rootHeight}px`;
+        frontFace.style.backgroundPosition = `${-x1}px ${-y1}px`;
+
+        const backFace = document.createElement("div");
+        backFace.className = "hero-tile-face hero-tile-back";
+        backFace.style.backgroundImage = `url(${heroBack.getAttribute("src")})`;
+        backFace.style.backgroundSize = `${rootWidth}px ${rootHeight}px`;
+        backFace.style.backgroundPosition = `${-x1}px ${-y1}px`;
+
+        inner.append(frontFace, backFace);
+        tile.appendChild(inner);
+        heroTilesRoot.appendChild(tile);
+        const state = { tile, inner, timerId: null };
+        tileStates.push(state);
+        heroTileStateGrid[row][col] = state;
+      }
+    }
+    heroTileStateByElement = new Map(tileStates.map((state) => [state.tile, state]));
+
+    if (heroGridRoot) {
+      for (let col = 1; col < HERO_COLS; col += 1) {
+        const x = Math.round(col * tileWidth);
+        const vertical = document.createElement("div");
+        vertical.style.position = "absolute";
+        vertical.style.top = "0";
+        vertical.style.bottom = "0";
+        vertical.style.left = `${x}px`;
+        vertical.style.width = `${HERO_GRID_LINE_SIZE}px`;
+        vertical.style.marginLeft = `${-HERO_GRID_LINE_SIZE / 2}px`;
+        vertical.style.background = HERO_GRID_LINE_COLOR;
+        heroGridRoot.appendChild(vertical);
+      }
+
+      for (let row = 1; row < HERO_ROWS; row += 1) {
+        const y = Math.round(row * tileHeight);
+        const horizontal = document.createElement("div");
+        horizontal.style.position = "absolute";
+        horizontal.style.left = "0";
+        horizontal.style.right = "0";
+        horizontal.style.top = `${y}px`;
+        horizontal.style.height = `${HERO_GRID_LINE_SIZE}px`;
+        horizontal.style.marginTop = `${-HERO_GRID_LINE_SIZE / 2}px`;
+        horizontal.style.background = HERO_GRID_LINE_COLOR;
+        heroGridRoot.appendChild(horizontal);
+      }
+    }
+
+    tileStates.forEach((state) => {
+      state.tile.addEventListener("pointerenter", (event) => {
+        if (event.pointerType === "touch") return;
+        triggerTileFlip(state, event.clientX);
+      });
+    });
+  };
+
+  buildHeroTiles();
+
+  let lastHeroWidth = heroTilesRoot ? Math.round(heroTilesRoot.clientWidth) : 0;
+  const handleHeroResize = () => {
+    if (!heroTilesRoot) return;
+    const nextWidth = Math.round(heroTilesRoot.clientWidth);
+    if (nextWidth === lastHeroWidth) return;
+    lastHeroWidth = nextWidth;
+    buildHeroTiles();
+  };
+
+  window.addEventListener("resize", handleHeroResize);
+  window.addEventListener("orientationchange", () => {
+    window.setTimeout(() => {
+      handleHeroResize();
+    }, 120);
+  });
+
+  if (envelopeFlapTop) {
+    gsap.set(envelopeFlapTop, {
+      transformOrigin: "50% 0%",
+      rotationX: 0,
+      y: 0,
+      z: 0,
+      force3D: true,
+    });
+  }
+  envelopeItems.forEach((item) => {
+    gsap.set(item, { x: 0, y: 0, rotation: 0, opacity: 0, scale: 0.84 });
+  });
+  if (envelopeLink) {
+    envelopeLink.setAttribute("aria-disabled", "true");
+    envelopeLink.classList.add("pointer-events-none");
+  }
+
+  let isEnvelopeOpen = false;
+  let isEnvelopeAnimating = false;
+  const toggleEnvelope = () => {
+    if (!envelopeFlapTop || !envelopeBlock || isEnvelopeAnimating) return;
+    isEnvelopeAnimating = true;
+
+    if (!isEnvelopeOpen) {
+      const openTl = gsap.timeline({
+        defaults: { ease: "power2.out" },
+        onComplete: () => {
+          isEnvelopeOpen = true;
+          isEnvelopeAnimating = false;
+          if (envelopeLink) {
+            envelopeLink.setAttribute("aria-disabled", "false");
+            envelopeLink.classList.remove("pointer-events-none");
+          }
+        },
+      });
+      openTl.to(envelopeFlapTop, {
+        rotationX: -178,
+        y: 0,
+        duration: 0.66,
+        ease: "power2.inOut",
+      });
+      openTl.to(
+        envelopeItems,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.58,
+          stagger: 0.025,
+          x: (_, el) => Number(el.getAttribute("data-to-x") || 0),
+          y: (_, el) => Number(el.getAttribute("data-to-y") || 0),
+          rotation: (_, el) => Number(el.getAttribute("data-to-r") || 0),
+          ease: "power3.out",
+        },
+        "-=0.1",
+      );
+      return;
+    }
+
+    if (envelopeLink) {
+      envelopeLink.setAttribute("aria-disabled", "true");
+      envelopeLink.classList.add("pointer-events-none");
+    }
+    const closeTl = gsap.timeline({
+      defaults: { ease: "power2.inOut" },
+      onComplete: () => {
+        isEnvelopeOpen = false;
+        isEnvelopeAnimating = false;
+      },
+    });
+    closeTl.to(envelopeItems, {
+      opacity: 0,
+      scale: 0.84,
+      duration: 0.38,
+      stagger: { each: 0.018, from: "end" },
+      x: 0,
+      y: 0,
+      rotation: 0,
+      ease: "power2.in",
+    });
+    closeTl.to(
+      envelopeFlapTop,
+      {
+        rotationX: 0,
+        y: 0,
+        duration: 0.56,
+      },
+      "-=0.06",
+    );
+  };
+
+  if (envelopeBlock) {
+    envelopeBlock.addEventListener("click", (event) => {
+      if (event.target instanceof Element && event.target.closest("[data-m-envelope-link]") && isEnvelopeOpen) return;
+      toggleEnvelope();
+    });
+  }
+
+  if (heroTilesRoot) {
+    heroTilesRoot.style.touchAction = "pan-y";
+    let activeTouchId = null;
+    let startX = 0;
+    let startY = 0;
+    let prevX = 0;
+    let prevY = 0;
+    let dragAxis = null;
+    let lastTriggeredKey = "";
+
+    const triggerTileAtPoint = (x, y) => {
+      if (!heroTilesRoot) return;
+      const rect = heroTilesRoot.getBoundingClientRect();
+      const localX = x - rect.left;
+      const localY = y - rect.top;
+      if (localX < 0 || localY < 0 || localX > rect.width || localY > rect.height) return;
+      const col = Math.min(HERO_COLS - 1, Math.max(0, Math.floor((localX / rect.width) * HERO_COLS)));
+      const row = Math.min(HERO_ROWS - 1, Math.max(0, Math.floor((localY / rect.height) * HERO_ROWS)));
+      const key = `${row}-${col}`;
+      if (key === lastTriggeredKey) return;
+      const state = heroTileStateGrid[row]?.[col];
+      if (!state) return;
+      triggerTileFlip(state, x);
+      lastTriggeredKey = key;
+    };
+
+    const resetTouchGesture = () => {
+      activeTouchId = null;
+      dragAxis = null;
+      lastTriggeredKey = "";
+    };
+
+    heroTilesRoot.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "touch") return;
+      activeTouchId = event.pointerId;
+      startX = event.clientX;
+      startY = event.clientY;
+      prevX = event.clientX;
+      prevY = event.clientY;
+      dragAxis = null;
+      lastTriggeredKey = "";
+    });
+
+    heroTilesRoot.addEventListener(
+      "pointermove",
+      (event) => {
+        if (event.pointerType !== "touch") return;
+        if (activeTouchId !== event.pointerId) return;
+
+        const dx = event.clientX - startX;
+        const dy = event.clientY - startY;
+        const absDx = Math.abs(dx);
+        const absDy = Math.abs(dy);
+
+        if (!dragAxis) {
+          if (absDx < HERO_TOUCH_DRAG_THRESHOLD && absDy < HERO_TOUCH_DRAG_THRESHOLD) return;
+          if (absDx > absDy * HERO_TOUCH_AXIS_RATIO) {
+            dragAxis = "x";
+          } else if (absDy > absDx * HERO_TOUCH_AXIS_RATIO) {
+            dragAxis = "y";
+          } else {
+            return;
+          }
+        }
+
+        if (dragAxis !== "x") return;
+
+        const distance = Math.hypot(event.clientX - prevX, event.clientY - prevY);
+        const step = 8;
+        const segments = Math.max(1, Math.ceil(distance / step));
+        for (let i = 1; i <= segments; i += 1) {
+          const t = i / segments;
+          const x = prevX + (event.clientX - prevX) * t;
+          const y = prevY + (event.clientY - prevY) * t;
+          triggerTileAtPoint(x, y);
+        }
+        prevX = event.clientX;
+        prevY = event.clientY;
+      },
+      { passive: true },
+    );
+
+    heroTilesRoot.addEventListener("pointerup", (event) => {
+      if (event.pointerType !== "touch") return;
+      if (activeTouchId !== event.pointerId) return;
+      resetTouchGesture();
+    });
+
+    heroTilesRoot.addEventListener("pointercancel", (event) => {
+      if (event.pointerType !== "touch") return;
+      if (activeTouchId !== event.pointerId) return;
+      resetTouchGesture();
+    });
+  }
 
   if (nameToggle) {
     let toggled = false;
@@ -356,9 +758,33 @@ const storageEmbedUrl =
     });
   };
 
+  const closeAccordionItem = (item) => {
+    const trigger = item.querySelector("[data-m-accordion-trigger]");
+    const panel = item.querySelector("[data-m-accordion-panel]");
+    if (!trigger || !panel) return;
+    trigger.classList.remove("bg-[#e8ccd8]", "text-white");
+    trigger.setAttribute("aria-expanded", "false");
+    panel.style.maxHeight = "0px";
+    unmountPanelIframes(panel);
+  };
+
+  const closeOpenHeavyItemsExcept = (exceptItem) => {
+    const allItems = Array.from(document.querySelectorAll(".m-accordion-item"));
+    allItems.forEach((item) => {
+      if (item === exceptItem) return;
+      const panel = item.querySelector("[data-m-accordion-panel]");
+      const trigger = item.querySelector("[data-m-accordion-trigger]");
+      if (!panel || !trigger) return;
+      const hasIframeEmbed = Boolean(panel.querySelector("[data-m-iframe-host]"));
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      if (hasIframeEmbed && isOpen) {
+        closeAccordionItem(item);
+      }
+    });
+  };
+
   groups.forEach((group) => {
     const items = Array.from(group.querySelectorAll(".m-accordion-item"));
-    let activeItem = null;
 
     items.forEach((item) => {
       const trigger = item.querySelector("[data-m-accordion-trigger]");
@@ -366,20 +792,16 @@ const storageEmbedUrl =
       if (!trigger || !panel) return;
 
       trigger.addEventListener("click", () => {
-        const isOpen = item === activeItem;
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        if (!isOpen) {
+          closeOpenHeavyItemsExcept(item);
+        }
 
         items.forEach((it) => {
-          const tr = it.querySelector("[data-m-accordion-trigger]");
-          const pa = it.querySelector("[data-m-accordion-panel]");
-          if (!tr || !pa) return;
-          tr.classList.remove("bg-[#e8ccd8]", "text-white");
-          tr.setAttribute("aria-expanded", "false");
-          pa.style.maxHeight = "0px";
-          unmountPanelIframes(pa);
+          closeAccordionItem(it);
         });
 
         if (isOpen) {
-          activeItem = null;
           return;
         }
 
@@ -387,7 +809,6 @@ const storageEmbedUrl =
         trigger.setAttribute("aria-expanded", "true");
         mountPanelIframes(panel);
         panel.style.maxHeight = `${panel.scrollHeight}px`;
-        activeItem = item;
       });
     });
   });
