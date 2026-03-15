@@ -69,39 +69,19 @@ const storageEmbedUrl =
   "https://embed.figma.com/design/iT7hQ2qok9o5VKYWX0Wjdl/Storage?node-id=0-1&embed-host=share";
 const mobileContactLetters = ["к", "о", "н", "т", "а", "к", "т", "ы"];
 const mobileLetterTargets = [
-  { x: -126, y: 6, r: -8 },
-  { x: -88, y: -28, r: 6 },
-  { x: -40, y: -10, r: -4 },
-  { x: 4, y: -36, r: 7 },
-  { x: 52, y: -18, r: -6 },
-  { x: 94, y: 0, r: 5 },
-  { x: 128, y: 32, r: -7 },
-  { x: -6, y: 20, r: 4 },
+  { x: -118, y: -76, r: -9 },
+  { x: -98, y: -112, r: 5 },
+  { x: -30, y: -80, r: -3 },
+  { x: 10, y: -64, r: 7 },
+  { x: 46, y: -82, r: -5 },
+  { x: 22, y: -114, r: 6 },
+  { x: 84, y: -108, r: -8 },
+  { x: 122, y: -80, r: 4 },
 ];
 ---
 
-<main class="mx-auto w-full max-w-[430px] bg-white px-4 pb-16 pt-6 text-[#272727]">
-  <header class="flex items-end justify-between gap-3">
-    <button
-      id="m-name-toggle"
-      type="button"
-      class="display-font bg-transparent text-[42px] leading-none text-[#6c6c6a] outline-none transition-all duration-300"
-      aria-pressed="false"
-    >
-      Алиса Канапина
-    </button>
-    <p class="text-[12px] font-medium text-[#6c6c6a]">Skygge</p>
-  </header>
-
-  <nav class="sticky top-2 z-20 mt-4 rounded-full border border-[#d9d9d9] bg-white/90 px-3 py-2 backdrop-blur">
-    <ul class="flex items-center justify-between gap-2 text-[12px] font-medium text-[#6c6c6a]">
-      <li><a href="#m-identity" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">Айдентика</a></li>
-      <li><a href="#m-graphics" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">Графика</a></li>
-      <li><a href="#m-dev" data-m-nav-link class="rounded-full px-2 py-1 transition-colors hover:bg-[#e8ccd8]">UX/UI</a></li>
-    </ul>
-  </nav>
-
-  <section class="mx-auto mt-4 w-full max-w-[344.92px] overflow-hidden bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]">
+<main class="mx-auto w-full max-w-[430px] bg-white px-4 pb-16 pt-0 text-[#272727]">
+  <section class="mx-auto mt-[34px] w-full max-w-[344.92px] overflow-hidden bg-gradient-to-b from-[#6c6c6a] to-[#d2d2ce]">
     <div class="relative h-[586px] w-full">
       <img src={meUndercoverMobile.src} alt="" class="absolute inset-0 h-full w-full object-cover opacity-0" data-m-me-undercover />
       <img src={meStaticMobile.src} alt="Алиса Канапина" class="absolute inset-0 z-10 h-full w-full object-cover opacity-0" data-m-me-static />
@@ -306,11 +286,11 @@ const mobileLetterTargets = [
     </div>
   </section>
 
-  <section class="relative z-20 mt-[215px] overflow-visible rounded-[14px] bg-[#bfc0c3]" data-m-envelope-block>
+  <section class="relative z-20 mt-[215px] overflow-visible" data-m-envelope-block>
     <div class="relative h-[240px] w-full cursor-pointer [perspective:1200px]">
       <img src={envelopeBase.src} alt="" class="absolute inset-0 h-full w-full object-cover" />
       <div
-        class="absolute inset-x-0 top-[2px] z-20 h-[96px] bg-[#7a7a7a]"
+        class="absolute inset-x-0 top-[19px] z-20 h-[96px] bg-[#7a7a7a]"
         style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
         data-m-envelope-corner
       ></div>
@@ -323,7 +303,7 @@ const mobileLetterTargets = [
           data-m-envelope-item
           data-m-item="heart1"
           data-to-x="74"
-          data-to-y="-24"
+          data-to-y="-149"
           data-to-r="14"
           data-m-envelope-link
         >
@@ -336,7 +316,7 @@ const mobileLetterTargets = [
           data-m-envelope-item
           data-m-item="heart3"
           data-to-x="-72"
-          data-to-y="-8"
+          data-to-y="-143"
           data-to-r="-16"
         />
         {
@@ -355,7 +335,7 @@ const mobileLetterTargets = [
         }
       </div>
       <div
-        class="absolute inset-x-0 top-[2px] z-30 h-[96px] bg-[#7a7a7a] [backface-visibility:visible] [transform-style:preserve-3d] [will-change:transform]"
+        class="absolute inset-x-0 top-[19px] z-30 h-[96px] bg-[#7a7a7a] [backface-visibility:visible] [transform-style:preserve-3d] [will-change:transform]"
         style="clip-path: polygon(0 0, 100% 0, 50% 100%);"
         data-m-envelope-flap-top
       ></div>
@@ -371,8 +351,6 @@ const mobileLetterTargets = [
 <script>
   import gsap from "gsap";
 
-  const nameToggle = document.getElementById("m-name-toggle");
-  const navLinks = Array.from(document.querySelectorAll("[data-m-nav-link]"));
   const groups = Array.from(document.querySelectorAll("[data-m-accordion-group]"));
   const heroTilesRoot = document.querySelector("[data-m-hero-tiles]");
   const heroGridRoot = document.querySelector("[data-m-hero-grid]");
@@ -711,28 +689,6 @@ const mobileLetterTargets = [
       resetTouchGesture();
     });
   }
-
-  if (nameToggle) {
-    let toggled = false;
-    nameToggle.addEventListener("click", () => {
-      toggled = !toggled;
-      nameToggle.textContent = toggled ? "Skygge" : "Алиса Канапина";
-      nameToggle.classList.toggle("text-[#e8ccd8]", toggled);
-      nameToggle.classList.toggle("display-font", !toggled);
-      nameToggle.setAttribute("aria-pressed", String(toggled));
-    });
-  }
-
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const href = link.getAttribute("href");
-      if (!href) return;
-      const target = document.querySelector(href);
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
 
   const mountPanelIframes = (panel) => {
     const hosts = Array.from(panel.querySelectorAll("[data-m-iframe-host]"));
